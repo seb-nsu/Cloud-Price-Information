@@ -1,0 +1,4384 @@
+{
+ "lastUpdatedAt": "2026-06-09T15:35:42.089593Z",
+ "services": [
+  {
+   "title": "Application-Load-Balancer-Dedicated-10-EU01",
+   "id": "STA_SKU_598790",
+   "sku": "ST-0204801",
+   "region": "eu01",
+   "category": "Network",
+   "product": "Application Load Balancer",
+   "name": "Application-Load-Balancer-Dedicated-10-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.02627777778",
+   "monthlyPrice": "18.9200000016",
+   "currency": "€",
+   "generalProductGroup": "Load Balancer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Application Networking"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0204801"
+    ],
+    "connectionLimitPerLoadBalancer": 10000,
+    "technicalProductGroup": "alb"
+   }
+  },
+  {
+   "title": "Application-Load-Balancer-Dedicated-10-EU02",
+   "id": "STA_SKU_628828",
+   "sku": "ST-0209702",
+   "region": "eu02",
+   "category": "Network",
+   "product": "Application Load Balancer",
+   "name": "Application-Load-Balancer-Dedicated-10-EU02",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.02758333333",
+   "monthlyPrice": "19.8599999976",
+   "currency": "€",
+   "generalProductGroup": "Load Balancer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Application Networking"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0209702"
+    ],
+    "connectionLimitPerLoadBalancer": 10000,
+    "technicalProductGroup": "alb"
+   }
+  },
+  {
+   "title": "Archiving-AL100-EU01",
+   "id": "STA_SKU_143133",
+   "sku": "ST-0110701",
+   "region": "eu01",
+   "category": "Archiving",
+   "product": "Archiving",
+   "name": "Archiving-AL100-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "1.45294444444",
+   "monthlyPrice": "1046.1199999968",
+   "currency": "€",
+   "generalProductGroup": "Archiving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Other (Storage)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0110701"
+    ],
+    "metro": false
+   }
+  },
+  {
+   "title": "Archiving-AL1000-EU01",
+   "id": "STA_SKU_143135",
+   "sku": "ST-0110801",
+   "region": "eu01",
+   "category": "Archiving",
+   "product": "Archiving",
+   "name": "Archiving-AL1000-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "2.12751388888",
+   "monthlyPrice": "1531.8099999936",
+   "currency": "€",
+   "generalProductGroup": "Archiving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Other (Storage)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0110801"
+    ],
+    "metro": false
+   }
+  },
+  {
+   "title": "Archiving-AL1500-EU01",
+   "id": "STA_SKU_143137",
+   "sku": "ST-0110901",
+   "region": "eu01",
+   "category": "Archiving",
+   "product": "Archiving",
+   "name": "Archiving-AL1500-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "4.33322222222",
+   "monthlyPrice": "3119.9199999984",
+   "currency": "€",
+   "generalProductGroup": "Archiving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Other (Storage)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0110901"
+    ],
+    "metro": false
+   }
+  },
+  {
+   "title": "Archiving-ILM100-EU01",
+   "id": "STA_SKU_143139",
+   "sku": "ST-0111001",
+   "region": "eu01",
+   "category": "Archiving",
+   "product": "Archiving",
+   "name": "Archiving-ILM100-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "1.45294444444",
+   "monthlyPrice": "1046.1199999968",
+   "currency": "€",
+   "generalProductGroup": "Archiving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Other (Storage)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0111001"
+    ],
+    "metro": false
+   }
+  },
+  {
+   "title": "Backup Storage for MongoDB Premium-EU01",
+   "id": "STA_SKU_14553067",
+   "sku": "ST-0039201",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Backup Storage",
+   "name": "Backup Storage for MongoDB Premium-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003697772",
+   "monthlyPrice": "0.0266239584",
+   "currency": "€",
+   "generalProductGroup": "MongoDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Backup Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "d558c45a-2546-4f3b-bee0-be3c5437cc28"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Backup Storage for MongoDB Premium-EU02",
+   "id": "STA_SKU_290111",
+   "sku": "ST-0145002",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Backup Storage",
+   "name": "Backup Storage for MongoDB Premium-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003883",
+   "monthlyPrice": "0.0279576",
+   "currency": "€",
+   "generalProductGroup": "MongoDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Backup Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0145002"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Backup Storage for PostgreSQL Premium-EU01",
+   "id": "STA_SKU_14553096",
+   "sku": "ST-0040001",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Backup Storage",
+   "name": "Backup Storage for PostgreSQL Premium-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003697772",
+   "monthlyPrice": "0.0266239584",
+   "currency": "€",
+   "generalProductGroup": "PostgreSQL",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Backup Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "33baa380-8769-450c-8ce8-1f56cc487b77"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Backup Storage for PostgreSQL Premium-EU02",
+   "id": "STA_SKU_293972",
+   "sku": "ST-0152002",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Backup Storage",
+   "name": "Backup Storage for PostgreSQL Premium-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003883",
+   "monthlyPrice": "0.0279576",
+   "currency": "€",
+   "generalProductGroup": "PostgreSQL",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Backup Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0152002"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Backup Storage for SQLServer Premium-EU01",
+   "id": "STA_SKU_20634971",
+   "sku": "ST-0066601",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Backup Storage",
+   "name": "Backup Storage for SQLServer Premium-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003697772",
+   "monthlyPrice": "0.0266239584",
+   "currency": "€",
+   "generalProductGroup": "SQLServer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Backup Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "b1dc45e5-4d07-489c-beb6-2104e7bf6e04"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Backup Storage for SQLServer Premium-EU02",
+   "id": "STA_SKU_293974",
+   "sku": "ST-0152102",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Backup Storage",
+   "name": "Backup Storage for SQLServer Premium-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003883",
+   "monthlyPrice": "0.0279576",
+   "currency": "€",
+   "generalProductGroup": "SQLServer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Backup Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0152102"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Block Storage for backups Premium-EU01",
+   "id": "STA_SKU_14553106",
+   "sku": "ST-0011201",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for backups Premium-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003713967",
+   "monthlyPrice": "0.0267405624",
+   "currency": "€",
+   "generalProductGroup": "Block Storage",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0011201"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for backups Premium-EU01-m",
+   "id": "STA_SKU_14553111",
+   "sku": "ST-0011701",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for backups Premium-EU01-m",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003713967",
+   "monthlyPrice": "0.0267405624",
+   "currency": "€",
+   "generalProductGroup": "Block Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0011701",
+     "backup-metro"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": true,
+    "storage": "backup",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for backups Premium-EU02",
+   "id": "STA_SKU_289821",
+   "sku": "ST-0140102",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for backups Premium-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003900",
+   "monthlyPrice": "0.02808",
+   "currency": "€",
+   "generalProductGroup": "Block Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0140102"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for backups Premium-EU02-m",
+   "id": "STA_SKU_289813",
+   "sku": "ST-0139702",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for backups Premium-EU02-m",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003900",
+   "monthlyPrice": "0.02808",
+   "currency": "€",
+   "generalProductGroup": "Block Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0139702"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": true,
+    "storage": "backup",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for MongoDB Premium-Capacity-EU01",
+   "id": "STA_SKU_14553128",
+   "sku": "ST-0038501",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for MongoDB Premium-Capacity-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00009076380",
+   "monthlyPrice": "0.065349936",
+   "currency": "€",
+   "generalProductGroup": "MongoDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "f242d636-e791-4241-9fd3-0404c1829eea"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": "mongodb",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for MongoDB Premium-Capacity-EU02",
+   "id": "STA_SKU_290096",
+   "sku": "ST-0147302",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for MongoDB Premium-Capacity-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00009530",
+   "monthlyPrice": "0.068616",
+   "currency": "€",
+   "generalProductGroup": "MongoDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0147302"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": "mongodb",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for PostgreSQL Premium-Capacity-EU01",
+   "id": "STA_SKU_111228",
+   "sku": "ST-0069101",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for PostgreSQL Premium-Capacity-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00009076380",
+   "monthlyPrice": "0.065349936",
+   "currency": "€",
+   "generalProductGroup": "PostgreSQL",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "6d3dc814-eba6-4f73-a055-6edeb558c436"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": "postgresql",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for PostgreSQL Premium-Capacity-EU01-m",
+   "id": "STA_SKU_14553135",
+   "sku": "ST-0039301",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for PostgreSQL Premium-Capacity-EU01-m",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00013360960",
+   "monthlyPrice": "0.096198912",
+   "currency": "€",
+   "generalProductGroup": "PostgreSQL",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "87cf5452-22b3-40ad-91b6-c32076ca7402"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": true,
+    "storage": "postgresql",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for snapshots Premium-EU01",
+   "id": "STA_SKU_14553105",
+   "sku": "ST-0011101",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for snapshots Premium-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00002342292",
+   "monthlyPrice": "0.0168645024",
+   "currency": "€",
+   "generalProductGroup": "Snapshot Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0011101",
+     "snapshot"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": "snapshot",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for snapshots Premium-EU01-m",
+   "id": "STA_SKU_14553110",
+   "sku": "ST-0011601",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for snapshots Premium-EU01-m",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003447990",
+   "monthlyPrice": "0.024825528",
+   "currency": "€",
+   "generalProductGroup": "Snapshot Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0011601",
+     "snapshot-metro"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": true,
+    "storage": "snapshot",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for snapshots Premium-EU02",
+   "id": "STA_SKU_289859",
+   "sku": "ST-0142002",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for snapshots Premium-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00002459",
+   "monthlyPrice": "0.0177048",
+   "currency": "€",
+   "generalProductGroup": "Snapshot Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0142002"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": "snapshot",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for snapshots Premium-EU02-m",
+   "id": "STA_SKU_289861",
+   "sku": "ST-0142102",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for snapshots Premium-EU02-m",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003620",
+   "monthlyPrice": "0.026064",
+   "currency": "€",
+   "generalProductGroup": "Snapshot Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0142102"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": true,
+    "storage": "snapshot",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for SQLServer Premium-Capacity-EU01",
+   "id": "STA_SKU_20634964",
+   "sku": "ST-0065901",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for SQLServer Premium-Capacity-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00009076380",
+   "monthlyPrice": "0.065349936",
+   "currency": "€",
+   "generalProductGroup": "SQLServer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "6ff618c4-6a48-45f3-9820-53078a02e1cd"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": "SQL",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Block Storage for SQLServer Premium-Capacity-EU02",
+   "id": "STA_SKU_293943",
+   "sku": "ST-0150602",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Block Storage for SQLServer Premium-Capacity-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00009530",
+   "monthlyPrice": "0.068616",
+   "currency": "€",
+   "generalProductGroup": "SQLServer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0150602"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": "SQL",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "CDN-Image Optimizer-GLOBAL",
+   "id": "STA_SKU_365802",
+   "sku": "ST-0176890",
+   "region": "global",
+   "category": "Network",
+   "product": "CDN",
+   "name": "CDN-Image Optimizer-GLOBAL",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.02083333333",
+   "monthlyPrice": "14.9999999976",
+   "currency": "€",
+   "generalProductGroup": "CDN",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Content Delivery"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0176890"
+    ],
+    "technicalProductGroup": "cdn",
+    "type": "image"
+   }
+  },
+  {
+   "title": "CDN-Traffic-Africa-GLOBAL",
+   "id": "STA_SKU_365782",
+   "sku": "ST-0171390",
+   "region": "global",
+   "category": "Network",
+   "product": "CDN",
+   "name": "CDN-Traffic-Africa-GLOBAL",
+   "unit": "Megabyte",
+   "unitBilling": "per MB",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00011761773",
+   "monthlyPrice": "0.00011761773",
+   "currency": "€",
+   "generalProductGroup": "CDN",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Content Delivery"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0171390"
+    ],
+    "technicalProductGroup": "cdn",
+    "type": "AF"
+   }
+  },
+  {
+   "title": "CDN-Traffic-Asia-GLOBAL",
+   "id": "STA_SKU_365785",
+   "sku": "ST-0170990",
+   "region": "global",
+   "category": "Network",
+   "product": "CDN",
+   "name": "CDN-Traffic-Asia-GLOBAL",
+   "unit": "Megabyte",
+   "unitBilling": "per MB",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00007704709",
+   "monthlyPrice": "0.00007704709",
+   "currency": "€",
+   "generalProductGroup": "CDN",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Content Delivery"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0170990"
+    ],
+    "technicalProductGroup": "cdn",
+    "type": "ASIA"
+   }
+  },
+  {
+   "title": "CDN-Traffic-Europe-GLOBAL",
+   "id": "STA_SKU_365788",
+   "sku": "ST-0170790",
+   "region": "global",
+   "category": "Network",
+   "product": "CDN",
+   "name": "CDN-Traffic-Europe-GLOBAL",
+   "unit": "Megabyte",
+   "unitBilling": "per MB",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00005000000",
+   "monthlyPrice": "0.00005000000",
+   "currency": "€",
+   "generalProductGroup": "CDN",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Content Delivery"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0170790"
+    ],
+    "technicalProductGroup": "cdn",
+    "type": "EU"
+   }
+  },
+  {
+   "title": "Cloud Foundry App Usage-EU01",
+   "id": "STA_SKU_14553019",
+   "sku": "ST-0013201",
+   "region": "eu01",
+   "category": "Runtime",
+   "product": "Cloud Foundry",
+   "name": "Cloud Foundry App Usage-EU01",
+   "unit": "Megabyte Hours",
+   "unitBilling": "per Megabyte RAM/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00004093510",
+   "monthlyPrice": "0.029473272",
+   "currency": "€",
+   "generalProductGroup": "Application Runtime (CF)",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Other (Compute)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0013201",
+     "cf-app",
+     "scf-dev",
+     "scf-qa"
+    ]
+   }
+  },
+  {
+   "title": "Compute Optimized Server-c1.1-EU01",
+   "id": "STA_SKU_14552896",
+   "sku": "ST-0008701",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Server",
+   "name": "Compute Optimized Server-c1.1-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.01826770833",
+   "monthlyPrice": "13.1527499976",
+   "currency": "€",
+   "generalProductGroup": "Virtual Machines",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0008701",
+     "c1.1"
+    ],
+    "cpuOverprovisioning": true,
+    "flavor": "c1.1",
+    "hardware": "Intel",
+    "metro": false,
+    "os": null,
+    "ram": 2,
+    "vCPU": 1
+   }
+  },
+  {
+   "title": "Compute Optimized Server-c1.1-EU01-m",
+   "id": "STA_SKU_14552897",
+   "sku": "ST-0008801",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Server",
+   "name": "Compute Optimized Server-c1.1-EU01-m",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.03653541667",
+   "monthlyPrice": "26.3055000024",
+   "currency": "€",
+   "generalProductGroup": "Virtual Machines",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0008801",
+     "c1.1-metro"
+    ],
+    "cpuOverprovisioning": true,
+    "flavor": "c1.1",
+    "hardware": "Intel",
+    "metro": true,
+    "os": null,
+    "ram": 2,
+    "vCPU": 1
+   }
+  },
+  {
+   "title": "Compute Optimized Server-c1.2-EU01",
+   "id": "STA_SKU_14552894",
+   "sku": "ST-0008301",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Server",
+   "name": "Compute Optimized Server-c1.2-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.06065813333",
+   "monthlyPrice": "43.6738559976",
+   "currency": "€",
+   "generalProductGroup": "Virtual Machines",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0008301",
+     "c1.2"
+    ],
+    "cpuOverprovisioning": true,
+    "flavor": "c1.2",
+    "hardware": "Intel",
+    "metro": false,
+    "os": null,
+    "ram": 4,
+    "vCPU": 2
+   }
+  },
+  {
+   "title": "Compute Optimized Server-c1.2-EU01-m",
+   "id": "STA_SKU_14552895",
+   "sku": "ST-0008401",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Server",
+   "name": "Compute Optimized Server-c1.2-EU01-m",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.12131626667",
+   "monthlyPrice": "87.3477120024",
+   "currency": "€",
+   "generalProductGroup": "Virtual Machines",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0008401",
+     "c1.2-metro"
+    ],
+    "cpuOverprovisioning": true,
+    "flavor": "c1.2",
+    "hardware": "Intel",
+    "metro": true,
+    "os": null,
+    "ram": 4,
+    "vCPU": 2
+   }
+  },
+  {
+   "title": "Confidential Kubernetes License-EU01",
+   "id": "STA_SKU_441494",
+   "sku": "ST-0192301",
+   "region": "eu01",
+   "category": "Confidential Computing",
+   "product": "Confidential Kubernetes",
+   "name": "Confidential Kubernetes License-EU01",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.1509259",
+   "monthlyPrice": "108.666648",
+   "currency": "€",
+   "generalProductGroup": "Confidential Kubernetes",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Containers"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0192301"
+    ],
+    "licenseName": "confidential-kubernetes",
+    "metric": "vCPU",
+    "rateType": "flat",
+    "tierMaxValue": null,
+    "tierMinValue": null
+   }
+  },
+  {
+   "title": "Confidential Kubernetes License-EU02",
+   "id": "STA_SKU_441496",
+   "sku": "ST-0192402",
+   "region": "eu02",
+   "category": "Confidential Computing",
+   "product": "Confidential Kubernetes",
+   "name": "Confidential Kubernetes License-EU02",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.1509259",
+   "monthlyPrice": "108.666648",
+   "currency": "€",
+   "generalProductGroup": "Confidential Kubernetes",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Containers"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0192402"
+    ],
+    "licenseName": "confidential-kubernetes",
+    "metric": "vCPU",
+    "rateType": "flat",
+    "tierMaxValue": null,
+    "tierMinValue": null
+   }
+  },
+  {
+   "title": "Confidential Server-m1a.16cd-EU01",
+   "id": "STA_SKU_119409",
+   "sku": "ST-0070401",
+   "region": "eu01",
+   "category": "Confidential Computing",
+   "product": "Confidential Server",
+   "name": "Confidential Server-m1a.16cd-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "1.22674444446",
+   "monthlyPrice": "883.2560000112",
+   "currency": "€",
+   "generalProductGroup": "Confidential Server",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "m1a.16cd"
+    ],
+    "cpuOverprovisioning": false,
+    "flavor": "m1a.16cd",
+    "hardware": "AMD",
+    "metro": false,
+    "os": null,
+    "ram": 120,
+    "vCPU": 16
+   }
+  },
+  {
+   "title": "Confidential Server-m1a.2cd-EU01",
+   "id": "STA_SKU_119403",
+   "sku": "ST-0070101",
+   "region": "eu01",
+   "category": "Confidential Computing",
+   "product": "Confidential Server",
+   "name": "Confidential Server-m1a.2cd-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.15334305556",
+   "monthlyPrice": "110.4070000032",
+   "currency": "€",
+   "generalProductGroup": "Confidential Server",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0070101",
+     "m1a.2cd"
+    ],
+    "cpuOverprovisioning": false,
+    "flavor": "m1a.2cd",
+    "hardware": "AMD",
+    "metro": false,
+    "os": null,
+    "ram": 15,
+    "vCPU": 2
+   }
+  },
+  {
+   "title": "Confidential Server-m1a.30cd-EU01",
+   "id": "STA_SKU_119411",
+   "sku": "ST-0070501",
+   "region": "eu01",
+   "category": "Confidential Computing",
+   "product": "Confidential Server",
+   "name": "Confidential Server-m1a.30cd-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "2.30014583337",
+   "monthlyPrice": "1656.1050000264",
+   "currency": "€",
+   "generalProductGroup": "Confidential Server",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "m1a.30cd"
+    ],
+    "cpuOverprovisioning": false,
+    "flavor": "m1a.30cd",
+    "hardware": "AMD",
+    "metro": false,
+    "os": null,
+    "ram": 230,
+    "vCPU": 30
+   }
+  },
+  {
+   "title": "Confidential Server-m1a.4cd-EU01",
+   "id": "STA_SKU_119405",
+   "sku": "ST-0070201",
+   "region": "eu01",
+   "category": "Confidential Computing",
+   "product": "Confidential Server",
+   "name": "Confidential Server-m1a.4cd-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.30668611112",
+   "monthlyPrice": "220.8140000064",
+   "currency": "€",
+   "generalProductGroup": "Confidential Server",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "m1a.4cd"
+    ],
+    "cpuOverprovisioning": false,
+    "flavor": "m1a.4cd",
+    "hardware": "AMD",
+    "metro": false,
+    "os": null,
+    "ram": 30,
+    "vCPU": 4
+   }
+  },
+  {
+   "title": "ContainerRegistry-General-EU01",
+   "id": "STA_SKU_734439",
+   "sku": "ST-0226601",
+   "region": "eu01",
+   "category": "Developer Platform",
+   "product": "Container Registry",
+   "name": "ContainerRegistry-General-EU01",
+   "unit": "Gigabyte",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "beta",
+   "documentation": "https://docs.stackit.cloud/products/developer-platform/container-registry/",
+   "price": "0.40",
+   "monthlyPrice": "0.40",
+   "currency": "€",
+   "generalProductGroup": "Container Registry",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Developer Tools",
+    "serviceSubcategory": "Continuous Integration and Deployment"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0226601"
+    ]
+   }
+  },
+  {
+   "title": "DNS-100-EU01",
+   "id": "STA_SKU_14638348",
+   "sku": "ST-0062101",
+   "region": "eu01",
+   "category": "Network",
+   "product": "DNS",
+   "name": "DNS-100-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00266275276",
+   "monthlyPrice": "1.9171819872",
+   "currency": "€",
+   "generalProductGroup": "DNS",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Other (Networking)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "1c4c5128-e0c5-4d5c-8532-929480cd7f96"
+    ],
+    "recordLimitPerZone": 100
+   }
+  },
+  {
+   "title": "DNS-100-GLOBAL",
+   "id": "STA_SKU_365773",
+   "sku": "ST-0143190",
+   "region": "global",
+   "category": "Network",
+   "product": "DNS",
+   "name": "DNS-100-GLOBAL",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00266275276",
+   "monthlyPrice": "1.9171819872",
+   "currency": "€",
+   "generalProductGroup": "DNS",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Other (Networking)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0143190"
+    ],
+    "recordLimitPerZone": 100
+   }
+  },
+  {
+   "title": "DNS-1000-EU01",
+   "id": "STA_SKU_14638349",
+   "sku": "ST-0062201",
+   "region": "eu01",
+   "category": "Network",
+   "product": "DNS",
+   "name": "DNS-1000-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00428964699",
+   "monthlyPrice": "3.0885458328",
+   "currency": "€",
+   "generalProductGroup": "DNS",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Other (Networking)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "7df90027-4438-49cf-8024-4c45cf390208"
+    ],
+    "recordLimitPerZone": 1000
+   }
+  },
+  {
+   "title": "DNS-1000-GLOBAL",
+   "id": "STA_SKU_365768",
+   "sku": "ST-0143290",
+   "region": "global",
+   "category": "Network",
+   "product": "DNS",
+   "name": "DNS-1000-GLOBAL",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00428964699",
+   "monthlyPrice": "3.0885458328",
+   "currency": "€",
+   "generalProductGroup": "DNS",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Other (Networking)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0143290"
+    ],
+    "recordLimitPerZone": 1000
+   }
+  },
+  {
+   "title": "Dremio Total Memory-GLOBAL",
+   "id": "STA_SKU_366239",
+   "sku": "ST-0177690",
+   "region": "global",
+   "category": "Data & AI",
+   "product": "Dremio",
+   "name": "Dremio Total Memory-GLOBAL",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "beta",
+   "documentation": null,
+   "price": "0.0365721963",
+   "monthlyPrice": "26.331981336",
+   "currency": "€",
+   "generalProductGroup": "Data Platform",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Analytics",
+    "serviceSubcategory": "Data Processing"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0177690"
+    ]
+   }
+  },
+  {
+   "title": "Edge Cloud-Node Starter-EU01",
+   "id": "STA_SKU_583558",
+   "sku": "ST-0200401",
+   "region": "eu01",
+   "category": "Runtime",
+   "product": "Edge Cloud",
+   "name": "Edge Cloud-Node Starter-EU01",
+   "unit": "Hours",
+   "unitBilling": "per node/hour",
+   "maturityModelState": "beta",
+   "documentation": "https://docs.stackit.cloud/products/runtime/edge-cloud/",
+   "price": "0.02777777778",
+   "monthlyPrice": "20.0000000016",
+   "currency": "€",
+   "generalProductGroup": "Edge Cloud",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Other (Compute)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0200401"
+    ],
+    "planId": "4916c0e2-e719-445a-9920-58e491cd06c5",
+    "technicalProductGroup": "edge",
+    "type": "plan"
+   }
+  },
+  {
+   "title": "Essential-Network-Load-Balancer-10-EU01",
+   "id": "STA_SKU_22198927",
+   "sku": "ST-0062401",
+   "region": "eu01",
+   "category": "Network",
+   "product": "Network Load Balancer",
+   "name": "Essential-Network-Load-Balancer-10-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.01304166667",
+   "monthlyPrice": "9.3900000024",
+   "currency": "€",
+   "generalProductGroup": "Load Balancer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Network Routing"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "085aa318-d3fa-4378-aa31-f770ad0e0cbd"
+    ],
+    "connectionLimitPerLoadBalancer": 10000,
+    "technicalProductGroup": "nlb"
+   }
+  },
+  {
+   "title": "Essential-Network-Load-Balancer-10-EU02",
+   "id": "STA_SKU_290021",
+   "sku": "ST-0143402",
+   "region": "eu02",
+   "category": "Network",
+   "product": "Network Load Balancer",
+   "name": "Essential-Network-Load-Balancer-10-EU02",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.01369375",
+   "monthlyPrice": "9.8595",
+   "currency": "€",
+   "generalProductGroup": "Load Balancer",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Network Routing"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0143402"
+    ],
+    "connectionLimitPerLoadBalancer": 10000,
+    "technicalProductGroup": "nlb"
+   }
+  },
+  {
+   "title": "File Storage Premium-EU01",
+   "id": "STA_SKU_280367",
+   "sku": "ST-0124901",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "File Storage",
+   "name": "File Storage Premium-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00050547002",
+   "monthlyPrice": "0.3639384144",
+   "currency": "€",
+   "generalProductGroup": "File Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "File Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0124901"
+    ],
+    "class": "premium",
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "technicalProductGroup": "file-storage",
+    "type": null
+   }
+  },
+  {
+   "title": "File Storage Standard-EU01",
+   "id": "STA_SKU_280365",
+   "sku": "ST-0124801",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "File Storage",
+   "name": "File Storage Standard-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00031135735",
+   "monthlyPrice": "0.224177292",
+   "currency": "€",
+   "generalProductGroup": "File Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "File Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0124801"
+    ],
+    "class": "standard",
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "technicalProductGroup": "file-storage",
+    "type": null
+   }
+  },
+  {
+   "title": "File Storage Ultra-EU01",
+   "id": "STA_SKU_280369",
+   "sku": "ST-0125001",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "File Storage",
+   "name": "File Storage Ultra-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00089765684",
+   "monthlyPrice": "0.6463129248",
+   "currency": "€",
+   "generalProductGroup": "File Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "File Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0125001"
+    ],
+    "class": "ultra",
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "technicalProductGroup": "file-storage",
+    "type": null
+   }
+  },
+  {
+   "title": "Floating-IP-EU01",
+   "id": "STA_SKU_14553145",
+   "sku": "ST-0017201",
+   "region": "eu01",
+   "category": "Network",
+   "product": "Public IP Address",
+   "name": "Floating-IP-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00405555556",
+   "monthlyPrice": "2.9200000032",
+   "currency": "€",
+   "generalProductGroup": "Public IP",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Network Connectivity"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "floating-ip",
+     "public-ip"
+    ]
+   }
+  },
+  {
+   "title": "Git-10-EU01",
+   "id": "STA_SKU_363325",
+   "sku": "ST-0173401",
+   "region": "eu01",
+   "category": "Developer Platform",
+   "product": "Git",
+   "name": "Git-10-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": "https://docs.stackit.cloud/stackit/en/git-261161358.html",
+   "price": "0.02083",
+   "monthlyPrice": "14.9976",
+   "currency": "€",
+   "generalProductGroup": "Git",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Developer Tools",
+    "serviceSubcategory": "Source Code Management"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0173401"
+    ],
+    "diskStoragePerNode": "1",
+    "storage": "10",
+    "type": "10"
+   }
+  },
+  {
+   "title": "Git-100-EU01",
+   "id": "STA_SKU_259620",
+   "sku": "ST-0124001",
+   "region": "eu01",
+   "category": "Developer Platform",
+   "product": "Git",
+   "name": "Git-100-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": "https://docs.stackit.cloud/stackit/en/git-261161358.html",
+   "price": "0.14",
+   "monthlyPrice": "100.8",
+   "currency": "€",
+   "generalProductGroup": "Git",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Developer Tools",
+    "serviceSubcategory": "Source Code Management"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0124001"
+    ],
+    "diskStoragePerNode": "10",
+    "storage": "122",
+    "type": "100"
+   }
+  },
+  {
+   "title": "Git-AdditionalStorage-EU01",
+   "id": "STA_SKU_363326",
+   "sku": "ST-0173501",
+   "region": "eu01",
+   "category": "Developer Platform",
+   "product": "Git",
+   "name": "Git-AdditionalStorage-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": "https://docs.stackit.cloud/stackit/en/git-261161358.html",
+   "price": "0.00611",
+   "monthlyPrice": "4.3992",
+   "currency": "€",
+   "generalProductGroup": "Git",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Developer Tools",
+    "serviceSubcategory": "Source Code Management"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0173501"
+    ],
+    "diskStoragePerNode": "1",
+    "storage": "10",
+    "type": "1"
+   }
+  },
+  {
+   "title": "Image Storage-EU01-m",
+   "id": "STA_SKU_14553113",
+   "sku": "ST-0011901",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Image Storage-EU01-m",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00013360960",
+   "monthlyPrice": "0.096198912",
+   "currency": "€",
+   "generalProductGroup": "Image Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0011901",
+     "image"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": true,
+    "storage": "image",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Image Storage-EU02-m",
+   "id": "STA_SKU_289857",
+   "sku": "ST-0141902",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Block Storage",
+   "name": "Image Storage-EU02-m",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00014029",
+   "monthlyPrice": "0.1010088",
+   "currency": "€",
+   "generalProductGroup": "Image Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Block Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0141902"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": true,
+    "storage": "image",
+    "type": "capacity"
+   }
+  },
+  {
+   "title": "Intake-Reserved Ingestion Capacity-EU01",
+   "id": "STA_SKU_583365",
+   "sku": "ST-0200201",
+   "region": "eu01",
+   "category": "Data & AI",
+   "product": "Intake",
+   "name": "Intake-Reserved Ingestion Capacity-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "beta",
+   "documentation": null,
+   "price": "0.041711618",
+   "monthlyPrice": "30.03236496",
+   "currency": "€",
+   "generalProductGroup": "Intake",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Analytics",
+    "serviceSubcategory": "Data Processing"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0200201"
+    ]
+   }
+  },
+  {
+   "title": "KeyValue-1.2.10-Replica-EU01",
+   "id": "STA_SKU_735097",
+   "sku": "ST-0227101",
+   "region": "eu01",
+   "category": "Database",
+   "product": "Key Value Store",
+   "name": "KeyValue-1.2.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.20056944444",
+   "monthlyPrice": "144.4099999968",
+   "currency": "€",
+   "generalProductGroup": "A9s Key Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "6aad159d-a917-4c46-8224-f2583ce3a36b",
+     "ST-0227101",
+     "fc50c570-7774-44db-aef3-5e6fbc331fd4"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": 2,
+    "type": "Replica",
+    "vCPU": 1
+   }
+  },
+  {
+   "title": "KeyValue-1.2.10-Replica-EU02",
+   "id": "STA_SKU_735142",
+   "sku": "ST-0228602",
+   "region": "eu02",
+   "category": "Database",
+   "product": "Key Value Store",
+   "name": "KeyValue-1.2.10-Replica-EU02",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.21059792000",
+   "monthlyPrice": "151.6305024",
+   "currency": "€",
+   "generalProductGroup": "A9s Key Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "60608440-ae1c-439f-9ee1-e36c33604378",
+     "8d8f017d-c661-4f2e-9e59-307c4da6073e",
+     "ST-0228602"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": 2,
+    "type": "Replica",
+    "vCPU": 1
+   }
+  },
+  {
+   "title": "KeyValue-1.4.10-Replica-EU01",
+   "id": "STA_SKU_735100",
+   "sku": "ST-0227201",
+   "region": "eu01",
+   "category": "Database",
+   "product": "Key Value Store",
+   "name": "KeyValue-1.4.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.21752777778",
+   "monthlyPrice": "156.6200000016",
+   "currency": "€",
+   "generalProductGroup": "A9s Key Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "41c0c3a2-2a89-4b8e-b38c-79a39e14b3f7",
+     "975a5f6b-1f79-4b5c-9069-f40a1e65ae9b",
+     "ST-0227201"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": 4,
+    "type": "Replica",
+    "vCPU": 1
+   }
+  },
+  {
+   "title": "KeyValue-1.4.10-Replica-EU02",
+   "id": "STA_SKU_735145",
+   "sku": "ST-0228702",
+   "region": "eu02",
+   "category": "Database",
+   "product": "Key Value Store",
+   "name": "KeyValue-1.4.10-Replica-EU02",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.22840417000",
+   "monthlyPrice": "164.4510024",
+   "currency": "€",
+   "generalProductGroup": "A9s Key Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "ST-0228702",
+     "ac879618-5366-435a-ace2-09a748eeec75",
+     "e6f8f542-0f46-41a1-a2ad-67413e70101a"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": 4,
+    "type": "Replica",
+    "vCPU": 1
+   }
+  },
+  {
+   "title": "KMS-software-key-version-EU01",
+   "id": "STA_SKU_266103",
+   "sku": "ST-0124501",
+   "region": "eu01",
+   "category": "Security",
+   "product": "KMS",
+   "name": "KMS-software-key-version-EU01",
+   "unit": "Version/Hours",
+   "unitBilling": "per version/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00209102962",
+   "monthlyPrice": "1.5055413264",
+   "currency": "€",
+   "generalProductGroup": "KMS",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Security",
+    "serviceSubcategory": "Other (Security)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "1bc2a864-e1aa-44a1-8f82-e7f32aac0535"
+    ]
+   }
+  },
+  {
+   "title": "KMS-software-key-version-EU02",
+   "id": "STA_SKU_728241",
+   "sku": "ST-0226302",
+   "region": "eu02",
+   "category": "Security",
+   "product": "KMS",
+   "name": "KMS-software-key-version-EU02",
+   "unit": "Version/Hours",
+   "unitBilling": "per version/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00219558110",
+   "monthlyPrice": "1.580818392",
+   "currency": "€",
+   "generalProductGroup": "KMS",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Security",
+    "serviceSubcategory": "Other (Security)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "83b3ac60-873e-4eb2-a3b3-4f3d9c7f59d1",
+     "ST-0226302"
+    ]
+   }
+  },
+  {
+   "title": "Kubernetes Engine-Cluster Management-EU01",
+   "id": "STA_SKU_14553018",
+   "sku": "ST-0010701",
+   "region": "eu01",
+   "category": "Runtime",
+   "product": "Kubernetes Engine",
+   "name": "Kubernetes Engine-Cluster Management-EU01",
+   "unit": "Hours",
+   "unitBilling": "per cluster/hour",
+   "maturityModelState": "ga",
+   "documentation": "https://docs.stackit.cloud/stackit/en/kubernetes-10125671.html",
+   "price": "0.09959511998",
+   "monthlyPrice": "71.7084863856",
+   "currency": "€",
+   "generalProductGroup": "Kubernetes",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Containers"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "6f4a324e-cdb1-11ea-87d0-0242ac130003"
+    ]
+   }
+  },
+  {
+   "title": "Kubernetes Engine-Cluster Management-EU02",
+   "id": "STA_SKU_290011",
+   "sku": "ST-0143902",
+   "region": "eu02",
+   "category": "Runtime",
+   "product": "Kubernetes Engine",
+   "name": "Kubernetes Engine-Cluster Management-EU02",
+   "unit": "Hours",
+   "unitBilling": "per cluster/hour",
+   "maturityModelState": "ga",
+   "documentation": "https://docs.stackit.cloud/stackit/en/kubernetes-10125671.html",
+   "price": "0.09959511998",
+   "monthlyPrice": "71.7084863856",
+   "currency": "€",
+   "generalProductGroup": "Kubernetes",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Containers"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0143902"
+    ]
+   }
+  },
+  {
+   "title": "LogMe-1.2.50-Replica-EU01",
+   "id": "STA_SKU_14638254",
+   "sku": "ST-0052701",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe-1.2.50-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.38086111111",
+   "monthlyPrice": "274.2199999992",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "47531a4c-e9fc-4b10-a126-648b97857c06",
+     "e48efce4-d33a-4628-9903-e9776255bd87"
+    ],
+    "diskStoragePerNode": "50",
+    "nodes": 3,
+    "type": "Replica"
+   }
+  },
+  {
+   "title": "LogMe-1.4.10-Single-EU01",
+   "id": "STA_SKU_14638252",
+   "sku": "ST-0052501",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe-1.4.10-Single-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.20140277778",
+   "monthlyPrice": "145.0100000016",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "35d536b2-2a51-42d0-9fd3-a5a93334ec7f",
+     "d502b1e1-9b07-4a56-8993-5177d8f07c22"
+    ],
+    "diskStoragePerNode": "10",
+    "nodes": 1,
+    "type": "Single"
+   }
+  },
+  {
+   "title": "LogMe-1.4.100-Replica-EU01",
+   "id": "STA_SKU_14638256",
+   "sku": "ST-0052901",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe-1.4.100-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.43322222222",
+   "monthlyPrice": "311.9199999984",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "1d6a5158-6f98-429b-8d99-0ff23e32e8c6",
+     "f18cadc2-13aa-4dc6-8058-74da4755b77e"
+    ],
+    "diskStoragePerNode": "100",
+    "nodes": 3,
+    "type": "Replica"
+   }
+  },
+  {
+   "title": "LogMe-1.4.50-Replica-EU01",
+   "id": "STA_SKU_14638255",
+   "sku": "ST-0052801",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe-1.4.50-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.39100000000",
+   "monthlyPrice": "281.52",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "0478715f-d28b-4781-a024-6746e8f29da8",
+     "cb265af2-14ed-45bb-80c2-82ab3a738ada"
+    ],
+    "diskStoragePerNode": "50",
+    "nodes": 3,
+    "type": "Replica"
+   }
+  },
+  {
+   "title": "LogMe2-1.2.50-Replica-EU01",
+   "id": "STA_SKU_14638326",
+   "sku": "ST-0059901",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe2-1.2.50-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.38086111111",
+   "monthlyPrice": "274.2199999992",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe2",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "201d743c-0f06-4af2-8f20-649baf4819ae",
+     "e56a2dbe-6bec-4d0f-8225-4828d4ed364e"
+    ],
+    "diskStoragePerNode": "50",
+    "nodes": 3,
+    "type": "Replica"
+   }
+  },
+  {
+   "title": "LogMe2-1.4.10-Single-EU01",
+   "id": "STA_SKU_14638324",
+   "sku": "ST-0059701",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe2-1.4.10-Single-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.20140277778",
+   "monthlyPrice": "145.0100000016",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe2",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "77055c46-5fd5-4b2d-a86d-ef9e5c2d82cb",
+     "7a54492c-8a2e-4d3c-b6c2-a4f20cb65912"
+    ],
+    "diskStoragePerNode": "10",
+    "nodes": 1,
+    "type": "Single"
+   }
+  },
+  {
+   "title": "LogMe2-1.4.100-Replica-EU01",
+   "id": "STA_SKU_14638328",
+   "sku": "ST-0060101",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe2-1.4.100-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.43322222222",
+   "monthlyPrice": "311.9199999984",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe2",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "267865c5-f5a9-423e-97de-c8f54c69c402",
+     "e78c6f3f-8fa3-4ba3-9385-e8c6ea9f6f66"
+    ],
+    "diskStoragePerNode": "100",
+    "nodes": 3,
+    "type": "Replica"
+   }
+  },
+  {
+   "title": "LogMe2-1.4.50-Replica-EU01",
+   "id": "STA_SKU_14638327",
+   "sku": "ST-0060001",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "LogMe",
+   "name": "LogMe2-1.4.50-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.39100000000",
+   "monthlyPrice": "281.52",
+   "currency": "€",
+   "generalProductGroup": "A9s LogMe2",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "9c6d2fb8-192c-445b-ab88-5a1e4483dbf1",
+     "dab823e2-aa4f-46c5-b4b6-2c94f8ee5cfa"
+    ],
+    "diskStoragePerNode": "50",
+    "nodes": 3,
+    "type": "Replica"
+   }
+  },
+  {
+   "title": "Logs-ingestion-EU01",
+   "id": "STA_SKU_319508",
+   "sku": "ST-0171601",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "Logs",
+   "name": "Logs-ingestion-EU01",
+   "unit": "Gigabyte Ingestion",
+   "unitBilling": "per GB ingest",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "1.2",
+   "monthlyPrice": "864",
+   "currency": "€",
+   "generalProductGroup": "Logging",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "b4ad24f6-c6b6-412e-8bd2-4c2976262aed"
+    ],
+    "diskStoragePerNode": null
+   }
+  },
+  {
+   "title": "Logs-retention-EU01",
+   "id": "STA_SKU_319511",
+   "sku": "ST-0171701",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "Logs",
+   "name": "Logs-retention-EU01",
+   "unit": "Gigabyte Retention-Days",
+   "unitBilling": "per GB/days of retention",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.01",
+   "monthlyPrice": "0.30",
+   "currency": "€",
+   "generalProductGroup": "Logging",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "abf849a3-78b9-487c-a08b-d3c11a8a1f41"
+    ],
+    "diskStoragePerNode": null
+   }
+  },
+  {
+   "title": "MariaDB-1.2.10-Replica-EU01",
+   "id": "STA_SKU_14638221",
+   "sku": "ST-0049301",
+   "region": "eu01",
+   "category": "Database",
+   "product": "MariaDB",
+   "name": "MariaDB-1.2.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.17154166667",
+   "monthlyPrice": "123.5100000024",
+   "currency": "€",
+   "generalProductGroup": "A9s MariaDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Relational Databases"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "12306e42-b50f-4d93-a705-46ec911ba37e",
+     "1c9e884d-9605-4c63-8497-ec4a0c1cb393",
+     "490f94cc-8354-442b-902b-ad1652405ac9",
+     "7e6de930-2947-462c-864f-b5b5d209e8ab",
+     "ad0639d4-31a3-4fe8-9e40-d4cb8db260c1",
+     "d4072284-7e31-4d51-ae6f-ca477f7b3146"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "MariaDB-1.4.10-Replica-EU01",
+   "id": "STA_SKU_14638222",
+   "sku": "ST-0049401",
+   "region": "eu01",
+   "category": "Database",
+   "product": "MariaDB",
+   "name": "MariaDB-1.4.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.18020833333",
+   "monthlyPrice": "129.7499999976",
+   "currency": "€",
+   "generalProductGroup": "A9s MariaDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Relational Databases"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "04e0b96b-1047-497d-922c-e1692958580a",
+     "30010b61-813d-479c-ac98-97fd7f7d53a9",
+     "41457b43-b546-4328-a813-539cf0722bb8",
+     "6501ddb7-87da-47e5-b912-a0e6e4b666b8",
+     "bc5daedc-f10d-4ace-93ec-ca55da0cddf8",
+     "e1291a4c-fe59-4e25-99c1-e7aa3e7f4ff2"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "MariaDB-1.4.10-Single-EU01",
+   "id": "STA_SKU_14638217",
+   "sku": "ST-0048901",
+   "region": "eu01",
+   "category": "Database",
+   "product": "MariaDB",
+   "name": "MariaDB-1.4.10-Single-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.09995833333",
+   "monthlyPrice": "71.9699999976",
+   "currency": "€",
+   "generalProductGroup": "A9s MariaDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Relational Databases"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "683be856-3587-42de-b1b5-a792ff854f52",
+     "95a30133-3ab8-4ac5-8e8b-47aba2f00b04",
+     "a171f673-8222-4e0c-b528-ba1dc49de5d9",
+     "db679d07-3be7-4618-b403-ed4a0b671fa3",
+     "ddf1b3f5-c559-4869-83ad-72264655132c",
+     "e8a8f612-b6e1-4f44-8cfb-5ff0956d25fc"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 1,
+    "ram": null,
+    "type": "Single",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "MariaDB-1.4.50-Replica-EU01",
+   "id": "STA_SKU_14638223",
+   "sku": "ST-0049501",
+   "region": "eu01",
+   "category": "Database",
+   "product": "MariaDB",
+   "name": "MariaDB-1.4.50-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.20909722222",
+   "monthlyPrice": "150.5499999984",
+   "currency": "€",
+   "generalProductGroup": "A9s MariaDB",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Relational Databases"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "3b01e90f-7595-4692-94b2-794873cffda1",
+     "3f9a866c-9c7b-4a3e-831c-ecdc983aae05",
+     "8926abe6-24bd-4e23-8ca2-74c1ab10cdd5",
+     "a0f2bba7-5ca7-4f51-bdc6-cc537fae989a",
+     "c195f038-2c11-4230-bf9a-665c0c0f5956",
+     "e4a8d286-8077-4310-b02f-dc93be02743a"
+    ],
+    "diskStoragePerNode": "50",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Model Serving-embedding-plus-input-EU01",
+   "id": "STA_SKU_320120",
+   "sku": "ST-0173301",
+   "region": "eu01",
+   "category": "Data & AI",
+   "product": "AI Model Serving",
+   "name": "Model Serving-embedding-plus-input-EU01",
+   "unit": "mio output token",
+   "unitBilling": "mio output token",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.08",
+   "monthlyPrice": "0.08",
+   "currency": "€",
+   "generalProductGroup": "Model Serving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "AI and Machine Learning",
+    "serviceSubcategory": "Generative AI"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0173301"
+    ],
+    "technicalProductGroup": "embedding-plus",
+    "type": "input"
+   }
+  },
+  {
+   "title": "Model Serving-embedding-standard-input-EU01",
+   "id": "STA_SKU_320118",
+   "sku": "ST-0173201",
+   "region": "eu01",
+   "category": "Data & AI",
+   "product": "AI Model Serving",
+   "name": "Model Serving-embedding-standard-input-EU01",
+   "unit": "mio output token",
+   "unitBilling": "mio output token",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.02",
+   "monthlyPrice": "0.02",
+   "currency": "€",
+   "generalProductGroup": "Model Serving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "AI and Machine Learning",
+    "serviceSubcategory": "Generative AI"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0173201"
+    ],
+    "technicalProductGroup": "embedding-standard",
+    "type": "input"
+   }
+  },
+  {
+   "title": "Model Serving-llm-plus-input-EU01",
+   "id": "STA_SKU_320110",
+   "sku": "ST-0172801",
+   "region": "eu01",
+   "category": "Data & AI",
+   "product": "AI Model Serving",
+   "name": "Model Serving-llm-plus-input-EU01",
+   "unit": "mio input token",
+   "unitBilling": "mio input token",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.45",
+   "monthlyPrice": "0.45",
+   "currency": "€",
+   "generalProductGroup": "Model Serving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "AI and Machine Learning",
+    "serviceSubcategory": "Generative AI"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0172801"
+    ],
+    "technicalProductGroup": "LLM-plus",
+    "type": "input"
+   }
+  },
+  {
+   "title": "Model Serving-llm-plus-output-EU01",
+   "id": "STA_SKU_320112",
+   "sku": "ST-0172901",
+   "region": "eu01",
+   "category": "Data & AI",
+   "product": "AI Model Serving",
+   "name": "Model Serving-llm-plus-output-EU01",
+   "unit": "mio output token",
+   "unitBilling": "mio output token",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.65",
+   "monthlyPrice": "0.65",
+   "currency": "€",
+   "generalProductGroup": "Model Serving",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "AI and Machine Learning",
+    "serviceSubcategory": "Generative AI"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0172901"
+    ],
+    "technicalProductGroup": "LLM-plus",
+    "type": "output"
+   }
+  },
+  {
+   "title": "Object Storage Premium-EU01",
+   "id": "STA_SKU_14553142",
+   "sku": "ST-0010801",
+   "region": "eu01",
+   "category": "Storage",
+   "product": "Object Storage",
+   "name": "Object Storage Premium-EU01",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003697772",
+   "monthlyPrice": "0.0266239584",
+   "currency": "€",
+   "generalProductGroup": "Object Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Object Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "f98200ff-19c7-4dc9-8221-22cfb4942fec"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Object Storage Premium-EU02",
+   "id": "STA_SKU_289811",
+   "sku": "ST-0139602",
+   "region": "eu02",
+   "category": "Storage",
+   "product": "Object Storage",
+   "name": "Object Storage Premium-EU02",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00003883",
+   "monthlyPrice": "0.0279576",
+   "currency": "€",
+   "generalProductGroup": "Object Storage",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Storage",
+    "serviceSubcategory": "Object Storage"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0139602"
+    ],
+    "class": null,
+    "maxIOPerSec": null,
+    "maxTroughInMB": null,
+    "metro": false,
+    "storage": null,
+    "type": null
+   }
+  },
+  {
+   "title": "Observability-Basic-EU01",
+   "id": "STA_SKU_14553173",
+   "sku": "ST-0024701",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "Observability",
+   "name": "Observability-Basic-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.55353333333",
+   "monthlyPrice": "398.5439999976",
+   "currency": "€",
+   "generalProductGroup": "Monitoring",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "577837d5-d057-48fa-b262-b78e2c1b6d09",
+     "58461779-423b-4383-a769-314477f2e597",
+     "a9d5b2df-82dd-40d6-91e9-d551f2de3dda"
+    ],
+    "diskStoragePerNode": null,
+    "metricPerMin": 30000,
+    "targets": null
+   }
+  },
+  {
+   "title": "Observability-Frontend-Starter-EU01",
+   "id": "STA_SKU_14553177",
+   "sku": "ST-0025201",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "Observability",
+   "name": "Observability-Frontend-Starter-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.02748291983",
+   "monthlyPrice": "19.7877022776",
+   "currency": "€",
+   "generalProductGroup": "Monitoring",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "9165ab95-86ae-4b7e-b185-9cb8516a8a7e",
+     "f66c9f63-5ac1-4dce-b15c-f30d622f7da8",
+     "f8a40043-202d-4cb2-b331-57f01aeb9079"
+    ],
+    "diskStoragePerNode": null,
+    "metricPerMin": null,
+    "targets": null
+   }
+  },
+  {
+   "title": "Observability-Large-EU01",
+   "id": "STA_SKU_14553175",
+   "sku": "ST-0024901",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "Observability",
+   "name": "Observability-Large-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "4.99563833333",
+   "monthlyPrice": "3596.8595999976",
+   "currency": "€",
+   "generalProductGroup": "Monitoring",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "273311b2-f131-4935-8c4f-b1755c568daa",
+     "49ef40a7-40a1-4b60-84cb-897b678e2038",
+     "9ec9c491-424b-4611-926c-5c7874ac0c34"
+    ],
+    "diskStoragePerNode": null,
+    "metricPerMin": 300000,
+    "targets": null
+   }
+  },
+  {
+   "title": "Observability-Medium-EU01",
+   "id": "STA_SKU_14553174",
+   "sku": "ST-0024801",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "Observability",
+   "name": "Observability-Medium-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "1.75285555556",
+   "monthlyPrice": "1262.0560000032",
+   "currency": "€",
+   "generalProductGroup": "Monitoring",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "5d47c40f-75d0-4642-9d10-279d6d720c3f",
+     "bb66f313-8c0a-43dd-a1ae-3235dbb5af97",
+     "d9c5a97b-7a9d-4d14-bac4-2330eb63836d"
+    ],
+    "diskStoragePerNode": null,
+    "metricPerMin": 100000,
+    "targets": null
+   }
+  },
+  {
+   "title": "OpenSearch-1.2.10-Replica-EU01",
+   "id": "STA_SKU_14638186",
+   "sku": "ST-0045801",
+   "region": "eu01",
+   "category": "Database",
+   "product": "OpenSearch",
+   "name": "OpenSearch-1.2.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.20056944444",
+   "monthlyPrice": "144.4099999968",
+   "currency": "€",
+   "generalProductGroup": "A9s OpenSearch",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Analytics",
+    "serviceSubcategory": "Search"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "9e4eac4b-b03d-4d7b-b01b-6d1224aa2d68"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "OpenSearch-1.4.10-Replica-EU01",
+   "id": "STA_SKU_14638187",
+   "sku": "ST-0045901",
+   "region": "eu01",
+   "category": "Database",
+   "product": "OpenSearch",
+   "name": "OpenSearch-1.4.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.21070833333",
+   "monthlyPrice": "151.7099999976",
+   "currency": "€",
+   "generalProductGroup": "A9s OpenSearch",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Analytics",
+    "serviceSubcategory": "Search"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "e5fbee3b-8237-415e-a783-3ab25a40eeda"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "OpenSearch-1.4.10-Single-EU01",
+   "id": "STA_SKU_14638182",
+   "sku": "ST-0045401",
+   "region": "eu01",
+   "category": "Database",
+   "product": "OpenSearch",
+   "name": "OpenSearch-1.4.10-Single-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.09995833333",
+   "monthlyPrice": "71.9699999976",
+   "currency": "€",
+   "generalProductGroup": "A9s OpenSearch",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Analytics",
+    "serviceSubcategory": "Search"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "24615c29-99e8-4cc2-bcc3-ad7f45a5d46f"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 1,
+    "ram": null,
+    "type": "Single",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "OpenSearch-1.4.50-Replica-EU01",
+   "id": "STA_SKU_14638188",
+   "sku": "ST-0046001",
+   "region": "eu01",
+   "category": "Database",
+   "product": "OpenSearch",
+   "name": "OpenSearch-1.4.50-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.24448611111",
+   "monthlyPrice": "176.0299999992",
+   "currency": "€",
+   "generalProductGroup": "A9s OpenSearch",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Analytics",
+    "serviceSubcategory": "Search"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "28029780-2e42-41e7-9cc5-9ee15acd95f6"
+    ],
+    "diskStoragePerNode": "50",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Public IP Address (IPv4)-EU01",
+   "id": "STA_SKU_112205",
+   "sku": "ST-0070001",
+   "region": "eu01",
+   "category": "Network",
+   "product": "Public IP Address",
+   "name": "Public IP Address (IPv4)-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00405555556",
+   "monthlyPrice": "2.9200000032",
+   "currency": "€",
+   "generalProductGroup": "Public IP",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Network Connectivity"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0070001",
+     "floating-ip-v4",
+     "router-ip-v4"
+    ]
+   }
+  },
+  {
+   "title": "Public IP Address (IPv4)-EU02",
+   "id": "STA_SKU_289866",
+   "sku": "ST-0139402",
+   "region": "eu02",
+   "category": "Network",
+   "product": "Public IP Address",
+   "name": "Public IP Address (IPv4)-EU02",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00425833",
+   "monthlyPrice": "3.0659976",
+   "currency": "€",
+   "generalProductGroup": "Public IP",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Network Connectivity"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0139402"
+    ]
+   }
+  },
+  {
+   "title": "RabbitMQ-1.2.10-Replica-EU01",
+   "id": "STA_SKU_14638170",
+   "sku": "ST-0043901",
+   "region": "eu01",
+   "category": "Messaging",
+   "product": "RabbitMQ",
+   "name": "RabbitMQ-1.2.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.20056944444",
+   "monthlyPrice": "144.4099999968",
+   "currency": "€",
+   "generalProductGroup": "A9s RabbitMQ",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Integration",
+    "serviceSubcategory": "Messaging"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "05b5726b-a347-4a79-85f9-890ec0e86c7c",
+     "2c83a9a8-0585-4179-b844-42091986d28f",
+     "2eb144f3-2f78-495c-9ee6-7a4bea4256cb",
+     "5bba8077-8ef0-4c3c-8b4c-79a20d4bc05a",
+     "7f0a09b0-9243-4b28-8d4d-e8a040613ef7",
+     "912346aa-9c7e-468a-96fa-f55469cccd2f",
+     "b38b21b1-efd5-42d1-a846-e9c32715ceb2",
+     "bb617528-f0b4-4473-935c-3a87380bd183",
+     "bd22e1ae-84f6-4ba2-99a0-6716de9a124a",
+     "e11eae9d-db60-406a-bba5-d1fa674caa30"
+    ],
+    "diskStoragePerNode": "10",
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "RabbitMQ-16.32.100-Replica-EU01",
+   "id": "STA_SKU_14638178",
+   "sku": "ST-0044701",
+   "region": "eu01",
+   "category": "Messaging",
+   "product": "RabbitMQ",
+   "name": "RabbitMQ-16.32.100-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "1.49204166667",
+   "monthlyPrice": "1074.2700000024",
+   "currency": "€",
+   "generalProductGroup": "A9s RabbitMQ",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Integration",
+    "serviceSubcategory": "Messaging"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "19d46532-637c-4e2e-8c8c-6ed787f64b65",
+     "65527752-76dc-4319-9e08-a74d5c8a8a3b",
+     "69a0b927-9b80-496b-8eef-aa2b055feaf8",
+     "87cdc91c-6450-4424-ba1a-8337b430cf3b",
+     "ae55ef33-3b41-4b67-9dcb-08a14576c755",
+     "b1546c1c-db95-4d83-8eb5-f11dc2e69f49",
+     "c82409a3-b171-47ee-960f-6ea2b0ea7e09",
+     "d2d9a879-cbdc-4e21-ac93-2dfd8586be81",
+     "e00b356f-4513-46a8-aa58-150eef5f9f16",
+     "e255ae1f-5a97-4351-bb32-47ff8075a95a"
+    ],
+    "diskStoragePerNode": "100",
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "RabbitMQ-16.32.100-Replica-HiPerf-EU01",
+   "id": "STA_SKU_20396658",
+   "sku": "ST-0063601",
+   "region": "eu01",
+   "category": "Messaging",
+   "product": "RabbitMQ",
+   "name": "RabbitMQ-16.32.100-Replica-HiPerf-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "1.77552958333",
+   "monthlyPrice": "1278.3812999976",
+   "currency": "€",
+   "generalProductGroup": "A9s RabbitMQ",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Integration",
+    "serviceSubcategory": "Messaging"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "0a856833-70ae-4048-992e-3ce90cb4969d",
+     "1abe7906-0f5e-4795-8df6-a53c36ef799c",
+     "3bbace35-04fb-4007-aa85-9081a14a690f",
+     "42270548-21a6-4742-88f5-c28fad59c247",
+     "560d0981-4a51-40b6-9fe8-a7d9714e6fcd",
+     "5d5b12fa-0b9e-4f6a-932b-b6d44808a6b4",
+     "ba847cbc-4309-4411-91af-85028fc27563",
+     "ed0fb6ba-f7ee-4ba1-bf06-0aa68b19a3a3"
+    ],
+    "diskStoragePerNode": "100",
+    "nodes": 3,
+    "ram": 32,
+    "type": "Replica",
+    "vCPU": 16
+   }
+  },
+  {
+   "title": "RabbitMQ-2.4.10-Replica-EU01",
+   "id": "STA_SKU_14638171",
+   "sku": "ST-0044001",
+   "region": "eu01",
+   "category": "Messaging",
+   "product": "RabbitMQ",
+   "name": "RabbitMQ-2.4.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.33259722222",
+   "monthlyPrice": "239.4699999984",
+   "currency": "€",
+   "generalProductGroup": "A9s RabbitMQ",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Integration",
+    "serviceSubcategory": "Messaging"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "17de00cb-b2ec-4ffe-bb5e-d6cf2f84aafc",
+     "39f0db9f-59c4-4aad-94c9-cf484fd0ea20",
+     "3b5a46e8-89c2-463a-99e5-fb4b407d8adb",
+     "4f655b8d-b264-42b8-8946-a9dd0d2aa272",
+     "5db1274e-73c6-40ce-8687-56b2b3fdea74",
+     "7384fc86-3803-4553-9976-b20d1fb57cd0",
+     "9a11b186-a392-4cc0-aebb-601a439c5ef9",
+     "9a709eda-6516-40a4-9973-ac997b160b2e",
+     "a67a6347-fc04-4495-a682-bfa717fe2160",
+     "e9446a9c-1315-4876-a0a1-46951455938b"
+    ],
+    "diskStoragePerNode": "10",
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Red Hat Enterprise Linux Server License for VM with 1 to 8 vCPUs-EU01",
+   "id": "STA_SKU_441456",
+   "sku": "ST-0190701",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Red Hat Enterprise Linux",
+   "name": "Red Hat Enterprise Linux Server License for VM with 1 to 8 vCPUs-EU01",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.01244651886",
+   "monthlyPrice": "8.9614935792",
+   "currency": "€",
+   "generalProductGroup": "Red Hat Enterprise Linux",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0190701"
+    ],
+    "licenseName": "rhel",
+    "metric": "vCPU",
+    "rateType": "tiered",
+    "tierMaxValue": 8,
+    "tierMinValue": 1
+   }
+  },
+  {
+   "title": "Red Hat Enterprise Linux Server License for VM with 1 to 8 vCPUs-EU02",
+   "id": "STA_SKU_441462",
+   "sku": "ST-0191002",
+   "region": "eu02",
+   "category": "Compute Engine",
+   "product": "Red Hat Enterprise Linux",
+   "name": "Red Hat Enterprise Linux Server License for VM with 1 to 8 vCPUs-EU02",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.01244651886",
+   "monthlyPrice": "8.9614935792",
+   "currency": "€",
+   "generalProductGroup": "Red Hat Enterprise Linux",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0191002"
+    ],
+    "licenseName": "rhel",
+    "metric": "vCPU",
+    "rateType": "tiered",
+    "tierMaxValue": 8,
+    "tierMinValue": 1
+   }
+  },
+  {
+   "title": "Red Hat Enterprise Linux Server License for VM with 127 or more vCPUs-EU01",
+   "id": "STA_SKU_441460",
+   "sku": "ST-0190901",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Red Hat Enterprise Linux",
+   "name": "Red Hat Enterprise Linux Server License for VM with 127 or more vCPUs-EU01",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00829767924",
+   "monthlyPrice": "5.9743290528",
+   "currency": "€",
+   "generalProductGroup": "Red Hat Enterprise Linux",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0190901"
+    ],
+    "licenseName": "rhel",
+    "metric": "vCPU",
+    "rateType": "tiered",
+    "tierMaxValue": null,
+    "tierMinValue": 128
+   }
+  },
+  {
+   "title": "Red Hat Enterprise Linux Server License for VM with 127 or more vCPUs-EU02",
+   "id": "STA_SKU_441466",
+   "sku": "ST-0191202",
+   "region": "eu02",
+   "category": "Compute Engine",
+   "product": "Red Hat Enterprise Linux",
+   "name": "Red Hat Enterprise Linux Server License for VM with 127 or more vCPUs-EU02",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00829767924",
+   "monthlyPrice": "5.9743290528",
+   "currency": "€",
+   "generalProductGroup": "Red Hat Enterprise Linux",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0191202"
+    ],
+    "licenseName": "rhel",
+    "metric": "vCPU",
+    "rateType": "tiered",
+    "tierMaxValue": null,
+    "tierMinValue": 128
+   }
+  },
+  {
+   "title": "Redis-1.2.10-Replica-EU01",
+   "id": "STA_SKU_14638277",
+   "sku": "ST-0055001",
+   "region": "eu01",
+   "category": "Database",
+   "product": "Redis",
+   "name": "Redis-1.2.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.20056944444",
+   "monthlyPrice": "144.4099999968",
+   "currency": "€",
+   "generalProductGroup": "A9s Redis",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "201001cd-15c1-42b8-8725-8c4e06708383",
+     "6987015d-5fff-420d-ab6b-557939557887",
+     "ccf63a2b-7b81-48f7-a104-aa33356f6b07",
+     "f87690b4-3191-45a1-a03d-1f10c0ec246f"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Redis-1.4.10-Replica-EU01",
+   "id": "STA_SKU_14638278",
+   "sku": "ST-0055101",
+   "region": "eu01",
+   "category": "Database",
+   "product": "Redis",
+   "name": "Redis-1.4.10-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.21752777778",
+   "monthlyPrice": "156.6200000016",
+   "currency": "€",
+   "generalProductGroup": "A9s Redis",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "192fef14-e4f9-44f0-ab7f-39545c40d820",
+     "5b59f28a-9382-4b97-8ddd-2aeb72e44a07",
+     "7b651f2f-5175-4ac2-a3c1-8e90b34110cc",
+     "e1e15135-83a3-4e3a-a85a-5e0efd66a9eb"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Redis-1.4.10-Single-EU01",
+   "id": "STA_SKU_14638275",
+   "sku": "ST-0054801",
+   "region": "eu01",
+   "category": "Database",
+   "product": "Redis",
+   "name": "Redis-1.4.10-Single-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.09995833333",
+   "monthlyPrice": "71.9699999976",
+   "currency": "€",
+   "generalProductGroup": "A9s Redis",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "04b7db2a-f72f-4a3e-8ba2-1bcd8035f635",
+     "3849f72f-99cc-4e2c-afda-700d66ef08f2",
+     "4ba7603e-67fe-442f-93c4-c6d37dcf36be",
+     "96e24604-7a43-4ff8-9ba4-609d4235a137"
+    ],
+    "diskStoragePerNode": "10",
+    "flavor": null,
+    "nodes": 1,
+    "ram": null,
+    "type": "Single",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Redis-1.4.50-Replica-EU01",
+   "id": "STA_SKU_14638279",
+   "sku": "ST-0055201",
+   "region": "eu01",
+   "category": "Database",
+   "product": "Redis",
+   "name": "Redis-1.4.50-Replica-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.25915277778",
+   "monthlyPrice": "186.5900000016",
+   "currency": "€",
+   "generalProductGroup": "A9s Redis",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Databases",
+    "serviceSubcategory": "Caching"
+   },
+   "attributes": {
+    "cfService": true,
+    "cfUniqueIds": [
+     "36e3a2e7-7c1b-403d-816f-067ee4ae443a",
+     "dee17e17-bc0e-4b84-b6fa-e2a4568ac34b",
+     "f5e70aaa-9bca-4b0c-a4d7-1e6a5f603472",
+     "fae58b93-b2fe-4e29-99d2-a09ee64d44a5"
+    ],
+    "diskStoragePerNode": "50",
+    "flavor": null,
+    "nodes": 3,
+    "ram": null,
+    "type": "Replica",
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Router-IP-EU01",
+   "id": "STA_SKU_14553146",
+   "sku": "ST-0017301",
+   "region": "eu01",
+   "category": "Network",
+   "product": "Public IP Address",
+   "name": "Router-IP-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00405555556",
+   "monthlyPrice": "2.9200000032",
+   "currency": "€",
+   "generalProductGroup": "Public IP",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Network Connectivity"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "router-ip"
+    ]
+   }
+  },
+  {
+   "title": "Secrets Manager-100-EU01",
+   "id": "STA_SKU_285004",
+   "sku": "ST-0125101",
+   "region": "eu01",
+   "category": "Security",
+   "product": "Secrets Manager",
+   "name": "Secrets Manager-100-EU01",
+   "unit": "Version/Hours",
+   "unitBilling": "per version/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00013888889",
+   "monthlyPrice": "0.1000000008",
+   "currency": "€",
+   "generalProductGroup": "Key-Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Security",
+    "serviceSubcategory": "Secret Management"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "287cf74f-a4b6-48e1-91d7-3b0a23eeb965"
+    ]
+   }
+  },
+  {
+   "title": "Secrets Manager-100k-EU01",
+   "id": "STA_SKU_285007",
+   "sku": "ST-0125401",
+   "region": "eu01",
+   "category": "Security",
+   "product": "Secrets Manager",
+   "name": "Secrets Manager-100k-EU01",
+   "unit": "Version/Hours",
+   "unitBilling": "per version/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00004861111",
+   "monthlyPrice": "0.0349999992",
+   "currency": "€",
+   "generalProductGroup": "Key-Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Security",
+    "serviceSubcategory": "Secret Management"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "8855b800-947e-4216-8042-2a2bf7747b21"
+    ]
+   }
+  },
+  {
+   "title": "Secrets Manager-10k-EU01",
+   "id": "STA_SKU_285006",
+   "sku": "ST-0125301",
+   "region": "eu01",
+   "category": "Security",
+   "product": "Secrets Manager",
+   "name": "Secrets Manager-10k-EU01",
+   "unit": "Version/Hours",
+   "unitBilling": "per version/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00006944444",
+   "monthlyPrice": "0.0499999968",
+   "currency": "€",
+   "generalProductGroup": "Key-Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Security",
+    "serviceSubcategory": "Secret Management"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "a21c6889-2b11-4dcd-8063-527a63e1bad9"
+    ]
+   }
+  },
+  {
+   "title": "Secrets Manager-1k-EU01",
+   "id": "STA_SKU_285005",
+   "sku": "ST-0125201",
+   "region": "eu01",
+   "category": "Security",
+   "product": "Secrets Manager",
+   "name": "Secrets Manager-1k-EU01",
+   "unit": "Version/Hours",
+   "unitBilling": "per version/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00009722222",
+   "monthlyPrice": "0.0699999984",
+   "currency": "€",
+   "generalProductGroup": "Key-Value Store",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Security",
+    "serviceSubcategory": "Secret Management"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "2831524d-71cc-4c89-9fe8-d313ff12b7a2"
+    ]
+   }
+  },
+  {
+   "title": "Secure Communication-EU01",
+   "id": "STA_SKU_725137",
+   "sku": "ST-0225401",
+   "region": "eu01",
+   "category": "Managed Service Products",
+   "product": "Wire on STACKIT",
+   "name": "Secure Communication-EU01",
+   "unit": "license",
+   "unitBilling": "per user/month",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "20.83",
+   "monthlyPrice": "20.83",
+   "currency": "€",
+   "generalProductGroup": "Wire",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Business Applications",
+    "serviceSubcategory": "Productivity and Collaboration"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0225401"
+    ]
+   }
+  },
+  {
+   "title": "Server Backup Management-EU01",
+   "id": "STA_SKU_14553220",
+   "sku": "ST-0025101",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Server Backup Management",
+   "name": "Server Backup Management-EU01",
+   "unit": "Hours",
+   "unitBilling": "per server/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00640277778",
+   "monthlyPrice": "4.6100000016",
+   "currency": "€",
+   "generalProductGroup": "Server Backup",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Other (Compute)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "3f650559-da7d-4791-a17c-3b999d95c58e"
+    ],
+    "flavor": null,
+    "hardware": null,
+    "metro": false,
+    "os": null,
+    "ram": null
+   }
+  },
+  {
+   "title": "Server Backup Management-EU02",
+   "id": "STA_SKU_289694",
+   "sku": "ST-0139202",
+   "region": "eu02",
+   "category": "Compute Engine",
+   "product": "Server Backup Management",
+   "name": "Server Backup Management-EU02",
+   "unit": "Hours",
+   "unitBilling": "per server/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00672292",
+   "monthlyPrice": "4.8405024",
+   "currency": "€",
+   "generalProductGroup": "Server Backup",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Other (Compute)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0139202"
+    ],
+    "flavor": null,
+    "hardware": null,
+    "metro": false,
+    "os": null,
+    "ram": null
+   }
+  },
+  {
+   "title": "Server Update Management-EU01",
+   "id": "STA_SKU_14553221",
+   "sku": "ST-0040101",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Server Update Management",
+   "name": "Server Update Management-EU01",
+   "unit": "Hours",
+   "unitBilling": "per server/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00500065954",
+   "monthlyPrice": "3.6004748688",
+   "currency": "€",
+   "generalProductGroup": "Server Update",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Other (Compute)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "93daa920-cae4-41f8-a7a3-be33fb55b36c"
+    ],
+    "flavor": null,
+    "hardware": null,
+    "metro": false,
+    "os": null,
+    "ram": null
+   }
+  },
+  {
+   "title": "Server Update Management-EU02",
+   "id": "STA_SKU_289809",
+   "sku": "ST-0139502",
+   "region": "eu02",
+   "category": "Compute Engine",
+   "product": "Server Update Management",
+   "name": "Server Update Management-EU02",
+   "unit": "Hours",
+   "unitBilling": "per server/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00525069",
+   "monthlyPrice": "3.7804968",
+   "currency": "€",
+   "generalProductGroup": "Server Update",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Other (Compute)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0139502"
+    ],
+    "flavor": null,
+    "hardware": null,
+    "metro": false,
+    "os": null,
+    "ram": null
+   }
+  },
+  {
+   "title": "STACKIT-Pipelines-EU01",
+   "id": "STA_SKU_606936",
+   "sku": "ST-0209501",
+   "region": "eu01",
+   "category": "Developer Platform",
+   "product": "Pipelines",
+   "name": "STACKIT-Pipelines-EU01",
+   "unit": "Minutes",
+   "unitBilling": "minutes of runtime",
+   "maturityModelState": "beta",
+   "documentation": "https://docs.stackit.cloud/stackit/en/enable-actions-in-stackit-git-326435120.html",
+   "price": "0.004042",
+   "monthlyPrice": "2.91024",
+   "currency": "€",
+   "generalProductGroup": "Pipelines",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Developer Tools",
+    "serviceSubcategory": "Continuous Integration and Deployment"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0209501"
+    ]
+   }
+  },
+  {
+   "title": "Telemetry-Log-External-EU01",
+   "id": "STA_SKU_725442",
+   "sku": "ST-0225501",
+   "region": "eu01",
+   "category": "Logging & Monitoring",
+   "product": "Telemetry Router",
+   "name": "Telemetry-Log-External-EU01",
+   "unit": "Megabyte",
+   "unitBilling": "per MB",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.00184",
+   "monthlyPrice": "0.00184",
+   "currency": "€",
+   "generalProductGroup": "Logging",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "75a41b5e-20cf-4b37-abc4-549acf7dc49b",
+     "ST-0225501"
+    ],
+    "diskStoragePerNode": null
+   }
+  },
+  {
+   "title": "Telemetry-Log-External-EU02",
+   "id": "STA_SKU_736745",
+   "sku": "ST-0230102",
+   "region": "eu02",
+   "category": "Logging & Monitoring",
+   "product": "Telemetry Router",
+   "name": "Telemetry-Log-External-EU02",
+   "unit": "Megabyte",
+   "unitBilling": "per MB",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.001932",
+   "monthlyPrice": "0.001932",
+   "currency": "€",
+   "generalProductGroup": "Logging",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Management and Governance",
+    "serviceSubcategory": "Observability"
+   },
+   "attributes": {
+    "cfService": false,
+    "cfUniqueIds": [
+     "ST-0230102",
+     "d59580ca-ff11-460e-bc4b-ee9aaa1a77f6"
+    ],
+    "diskStoragePerNode": null
+   }
+  },
+  {
+   "title": "VPN-IPSec-100-HA-EU01",
+   "id": "STA_SKU_364724",
+   "sku": "ST-0174601",
+   "region": "eu01",
+   "category": "Network",
+   "product": "VPN",
+   "name": "VPN-IPSec-100-HA-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.087875",
+   "monthlyPrice": "63.27",
+   "currency": "€",
+   "generalProductGroup": "VPN",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Other (Networking)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0174601"
+    ],
+    "maxBandwidth": 100,
+    "maxConnections": 1,
+    "planId": "p100",
+    "technicalProductGroup": "vpn",
+    "type": "plan"
+   }
+  },
+  {
+   "title": "VPN-IPSec-1000-HA-EU01",
+   "id": "STA_SKU_364730",
+   "sku": "ST-0174901",
+   "region": "eu01",
+   "category": "Network",
+   "product": "VPN",
+   "name": "VPN-IPSec-1000-HA-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.3933888889",
+   "monthlyPrice": "283.240000008",
+   "currency": "€",
+   "generalProductGroup": "VPN",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Other (Networking)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0174901"
+    ],
+    "maxBandwidth": 1000,
+    "maxConnections": 5,
+    "planId": "p1000",
+    "technicalProductGroup": "vpn",
+    "type": "plan"
+   }
+  },
+  {
+   "title": "VPN-IPSec-500-HA-EU01",
+   "id": "STA_SKU_364728",
+   "sku": "ST-0174801",
+   "region": "eu01",
+   "category": "Network",
+   "product": "VPN",
+   "name": "VPN-IPSec-500-HA-EU01",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.2109166667",
+   "monthlyPrice": "151.860000024",
+   "currency": "€",
+   "generalProductGroup": "VPN",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Networking",
+    "serviceSubcategory": "Other (Networking)"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0174801"
+    ],
+    "maxBandwidth": 500,
+    "maxConnections": 3,
+    "planId": "p500",
+    "technicalProductGroup": "vpn",
+    "type": "plan"
+   }
+  },
+  {
+   "title": "Windows Server Remote Desktop Services User SAL",
+   "id": "STA_SKU_14553165",
+   "sku": "ST-0025501",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Windows Server",
+   "name": "Windows Server Remote Desktop Services User SAL",
+   "unit": "Amount",
+   "unitBilling": "per user/month",
+   "maturityModelState": "deprecated",
+   "documentation": null,
+   "price": "10.44000000000",
+   "monthlyPrice": "10.44000000000",
+   "currency": "€",
+   "generalProductGroup": "Windows Server",
+   "priceListVisibility": "No",
+   "deprecated": "Yes",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "706c1fe6-1b55-4efe-822b-3b7ef23c7147"
+    ],
+    "cpuOverprovisioning": false,
+    "flavor": null,
+    "hardware": null,
+    "metro": false,
+    "os": "windows",
+    "ram": null,
+    "vCPU": null
+   }
+  },
+  {
+   "title": "Windows Server Standard License for VM with dedicated vCPU-EU01",
+   "id": "STA_SKU_441480",
+   "sku": "ST-0191801",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Windows Server",
+   "name": "Windows Server Standard License for VM with dedicated vCPU-EU01",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.054767437",
+   "monthlyPrice": "39.43255464",
+   "currency": "€",
+   "generalProductGroup": "Windows Server",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0191801"
+    ],
+    "cpuOverprovisioning": false,
+    "licenseName": "windows-server-standard",
+    "metric": "vCPU",
+    "rateType": "flat",
+    "tierMaxValue": null,
+    "tierMinValue": null
+   }
+  },
+  {
+   "title": "Windows Server Standard License for VM with dedicated vCPU-EU02",
+   "id": "STA_SKU_441484",
+   "sku": "ST-0192002",
+   "region": "eu02",
+   "category": "Compute Engine",
+   "product": "Windows Server",
+   "name": "Windows Server Standard License for VM with dedicated vCPU-EU02",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.054767437",
+   "monthlyPrice": "39.43255464",
+   "currency": "€",
+   "generalProductGroup": "Windows Server",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0192002"
+    ],
+    "cpuOverprovisioning": false,
+    "licenseName": "windows-server-standard",
+    "metric": "vCPU",
+    "rateType": "flat",
+    "tierMaxValue": null,
+    "tierMinValue": null
+   }
+  },
+  {
+   "title": "Windows Server Standard License for VM with shared vCPU-EU01",
+   "id": "STA_SKU_441478",
+   "sku": "ST-0191701",
+   "region": "eu01",
+   "category": "Compute Engine",
+   "product": "Windows Server",
+   "name": "Windows Server Standard License for VM with shared vCPU-EU01",
+   "unit": "Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "ga",
+   "documentation": null,
+   "price": "0.018805979",
+   "monthlyPrice": "13.54030488",
+   "currency": "€",
+   "generalProductGroup": "Windows Server",
+   "priceListVisibility": "Yes",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Compute",
+    "serviceSubcategory": "Virtual Machines"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0191701"
+    ],
+    "cpuOverprovisioning": true,
+    "licenseName": "windows-server-standard",
+    "metric": "vCPU",
+    "rateType": "flat",
+    "tierMaxValue": null,
+    "tierMinValue": null
+   }
+  },
+  {
+   "title": "Workflows Cluster-GLOBAL",
+   "id": "STA_SKU_434534",
+   "sku": "ST-0178690",
+   "region": "global",
+   "category": "Data & AI",
+   "product": "Workflows",
+   "name": "Workflows Cluster-GLOBAL",
+   "unit": "Hours",
+   "unitBilling": "per hour",
+   "maturityModelState": "beta",
+   "documentation": null,
+   "price": "0.3566139922",
+   "monthlyPrice": "256.762074384",
+   "currency": "€",
+   "generalProductGroup": "Data Platform",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Integration",
+    "serviceSubcategory": "Workflow Orchestration"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0178690"
+    ]
+   }
+  },
+  {
+   "title": "Workflows Execution Total Memory-GLOBAL",
+   "id": "STA_SKU_434537",
+   "sku": "ST-0178790",
+   "region": "global",
+   "category": "Data & AI",
+   "product": "Workflows",
+   "name": "Workflows Execution Total Memory-GLOBAL",
+   "unit": "Gigabyte Hours",
+   "unitBilling": "per GB/hour",
+   "maturityModelState": "beta",
+   "documentation": null,
+   "price": "0.0081090628",
+   "monthlyPrice": "5.838525216",
+   "currency": "€",
+   "generalProductGroup": "Data Platform",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Integration",
+    "serviceSubcategory": "Workflow Orchestration"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0178790"
+    ]
+   }
+  },
+  {
+   "title": "Workflows Execution Total vCPU-GLOBAL",
+   "id": "STA_SKU_434540",
+   "sku": "ST-0178890",
+   "region": "global",
+   "category": "Data & AI",
+   "product": "Workflows",
+   "name": "Workflows Execution Total vCPU-GLOBAL",
+   "unit": "vCPU Hours",
+   "unitBilling": "per vCPU/hour",
+   "maturityModelState": "beta",
+   "documentation": null,
+   "price": "0.0324362513",
+   "monthlyPrice": "23.354100936",
+   "currency": "€",
+   "generalProductGroup": "Data Platform",
+   "priceListVisibility": "No",
+   "deprecated": "No",
+   "finOpsFocus": {
+    "serviceCategory": "Integration",
+    "serviceSubcategory": "Workflow Orchestration"
+   },
+   "attributes": {
+    "cfUniqueIds": [
+     "ST-0178890"
+    ]
+   }
+  }
+ ]
+}
