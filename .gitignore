@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+# Laufzeitdaten – nur die Beispieldaten werden versioniert
+data/*
+!data/beispiel/
+data/beispiel/*.db-wal
+data/beispiel/*.db-shm

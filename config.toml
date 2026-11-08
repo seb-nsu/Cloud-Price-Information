@@ -1,0 +1,99 @@
+# Preisverwaltung – Konfiguration
+# Änderungen werden beim nächsten Abruf wirksam (kein Neustart nötig).
+# Geheimnisse (API-Keys, Passwörter, Webhook-URLs) bitte als Umgebungsvariable setzen, nicht hier.
+
+[general]
+# Freigabe von Abrufergebnissen:
+#   "immer"       – jedes Ergebnis mit Änderungen erst als Vorschau zeigen und manuell übernehmen
+#   "bei_warnung" – automatisch übernehmen, nur bei verletzter Schutzregel Vorschau
+#   "nie"         – wie "bei_warnung" (Schutzregeln greifen immer)
+# Der erste Abruf eines Anbieters und Abrufe ohne Änderungen werden immer direkt übernommen.
+freigabe = "immer"
+
+# Schutzregeln – bei Verstoß wartet das Ergebnis zwingend auf manuelle Freigabe
+min_ratio = 0.5            # weniger als 50 % der bisherigen Preise geliefert
+max_removed_ratio = 0.2    # mehr als 20 % der bisherigen Preise würden entfallen
+min_scope_size = 3         # Bereich (Dienst/Region) mit >= 3 Preisen liefert plötzlich nichts mehr
+
+# Archiv: Einträge älter als n Monate werden als CSV.gz nach data/archiv-export/ exportiert
+# und aus der Datenbank gelöscht. 0 = unbegrenzt aufbewahren.
+archiv_aufbewahrung_monate = 36
+
+# /health/details meldet „warnung“, wenn ein aktiver Anbieter länger nicht erfolgreich abgerufen wurde
+warnung_nach_tagen = 14
+
+# ---------------------------------------------------------------------------
+[waehrung]
+# EZB-Referenzkurse werden bei jedem Abruf (max. 1× täglich) geladen.
+# Fallback, falls die EZB nicht erreichbar ist (Einheiten je 1 EUR):
+fallback_kurse = { USD = 1.10, GBP = 0.85 }
+
+# ---------------------------------------------------------------------------
+[benachrichtigung]
+aktiv = false
+min_aenderung_prozent = 5          # Preisänderungen unter dieser Schwelle werden nicht gemeldet
+kategorien = []                    # leer = alle; z. B. ["Compute", "Storage"]
+arten = ["geändert", "entfallen"]  # zusätzlich möglich: "neu"
+webhook_format = "text"            # "text" (Teams/Slack/Mattermost) oder "json"
+# Ziel per Umgebungsvariablen: PV_WEBHOOK_URL und/oder PV_SMTP_HOST, PV_MAIL_TO … (siehe README)
+
+# ---------------------------------------------------------------------------
+[zeitplan]
+# Standard: nur manueller Abruf. Bei Bedarf täglichen Abruf aktivieren.
+aktiv = false
+uhrzeit = "03:00"
+anbieter = ["all"]
+
+# ---------------------------------------------------------------------------
+[providers.azure]
+enabled = true
+currency = "EUR"                                  # Microsoft: USD ist Abrechnungsbasis, EUR Orientierungswert
+regions = ["germanywestcentral", "westeurope"]
+services = [
+  "Virtual Machines",
+  "Storage",
+  "Azure Kubernetes Service",
+  "Azure Database for PostgreSQL",
+  "Azure Database for MySQL",
+  "SQL Database",
+  "Bandwidth",
+]
+price_types = ["Consumption"]                     # zusätzlich möglich: "Reservation"
+savings_plan = false                              # true: Savings-Plan-Preise (1/3 J.) zusätzlich übernehmen
+
+# ---------------------------------------------------------------------------
+[providers.aws]
+enabled = true
+regions = ["eu-central-1"]                        # Frankfurt; z. B. zusätzlich "eu-west-1"
+services = ["AmazonEC2", "AmazonS3", "AmazonEKS", "AmazonRDS"]
+term_types = ["OnDemand"]                         # zusätzlich möglich: "Reserved" (sehr viele Einträge)
+ec2_operating_systems = ["Linux", "Windows", "RHEL", "SUSE"]
+
+# ---------------------------------------------------------------------------
+[providers.gcp]
+enabled = true
+# API-Key über Umgebungsvariable GCP_API_KEY (Cloud Billing API muss im Projekt aktiv sein)
+currency = "EUR"
+regions = ["europe-west3", "europe-west4", "europe-west10"]
+global_services = ["Networking"]                  # nur hier auch SKUs ohne Region („global“) übernehmen
+services = ["Compute Engine", "Cloud Storage", "Kubernetes Engine", "Cloud SQL", "Networking"]
+usage_types = ["OnDemand"]                        # zusätzlich möglich: "Preemptible", "Commit1Yr", "Commit3Yr"
+
+# ---------------------------------------------------------------------------
+[providers.stackit]
+enabled = true
+url = "https://pim.api.stackit.cloud/v1/skus"
+regions = []                                      # leer = alle Regionen
+include_deprecated = false
+
+# ---------------------------------------------------------------------------
+[providers.ionos]
+enabled = true
+url = "https://docs.ionos.com/cloud/support/general-information/price-list/ionos-cloud-gmbh-de.md"
+
+# ---------------------------------------------------------------------------
+[providers.otc]
+enabled = true
+url = "https://calculator.otc-service.com/en/open-telekom-price-api/"
+regions = ["eu-de", "eu-nl"]
+services = ["ecs", "ecsnoc", "memo", "gpu", "evs", "obs", "cce", "rds", "dcs", "eip", "elb", "nat", "vpn", "sfs"]

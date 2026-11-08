@@ -1,0 +1,6 @@
+﻿id;provider;started_at;finished_at;status;n_fetched;n_new;n_changed;n_removed;n_unchanged;message;source;triggered_by;heartbeat;pid;n_renamed;n_dupes;violations;warnings;source_date;decided_at;decided_by
+1;stackit;2026-11-06T14:35:56+00:00;2026-11-06T14:35:56+00:00;ok;117;117;0;0;0;Übernommen;Beispiel (STACKIT PIM, Juni 2026);Beispieldaten;2026-11-06T14:35:56+00:00;557;0;0;;;;;
+2;ionos;2026-11-06T14:35:56+00:00;2026-11-06T14:35:56+00:00;ok;22;22;0;0;0;Übernommen;Beispiel (IONOS-Preisliste, Auszug);Beispieldaten;2026-11-06T14:35:56+00:00;557;0;0;;;;;
+3;stackit;2026-11-06T14:35:56+00:00;2026-11-06T14:35:56+00:00;ok;117;0;2;0;115;Übernommen;Beispiel (STACKIT PIM, Juni 2026);Beispieldaten;2026-11-06T14:35:56+00:00;557;0;0;;;;2026-11-06T14:35:56+00:00;Beispieldaten
+4;ionos;2026-11-06T14:35:56+00:00;2026-11-06T14:35:56+00:00;ok;22;0;1;0;21;Übernommen;Beispiel (IONOS-Preisliste, Auszug);Beispieldaten;2026-11-06T14:35:56+00:00;557;0;0;;;;2026-11-06T14:35:56+00:00;Beispieldaten
+5;stackit;2026-11-06T14:35:56+00:00;2026-11-06T14:35:56+00:00;review;117;0;1;0;116;Vorschau bereit – wartet auf Freigabe;Beispiel (STACKIT PIM, Juni 2026);Beispieldaten;2026-11-06T14:35:56+00:00;557;0;0;;;;;
