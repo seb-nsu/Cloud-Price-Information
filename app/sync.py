@@ -244,7 +244,7 @@ def _archive(con, old, reason: str, ts: str, run_id: int, new_price: float | Non
 
 def _norm(provider: str, rec: PriceRecord, rates: dict) -> dict:
     return normalize(provider, rec.category, rec.product, rec.unit, rec.price, rec.currency,
-                     rec.attributes, rates)
+                     rec.attributes, rates, rec.price_type)
 
 
 def apply_staged(db: Database, provider: str, run_id: int, rates: dict[str, float]) -> Diff:
@@ -259,15 +259,16 @@ def apply_staged(db: Database, provider: str, run_id: int, rates: dict[str, floa
             n = _norm(provider, rec, rates)
             return (rec.category, rec.service, rec.product, rec.region, rec.unit, rec.price, rec.currency,
                     rec.price_type, json.dumps(rec.attributes, ensure_ascii=False, sort_keys=True),
-                    rec.scope, n["unit_norm"], n["price_eur"], n["price_norm"], n["vcpu"], n["ram_gb"], n["os"])
+                    rec.scope, n["unit_norm"], n["price_eur"], n["price_norm"], n["vcpu"], n["ram_gb"], n["os"],
+                    n["gpu"])
 
         cols = ("category, service, product, region, unit, price, currency, price_type, attributes, scope, "
-                "unit_norm, price_eur, price_norm, vcpu, ram_gb, os")
+                "unit_norm, price_eur, price_norm, vcpu, ram_gb, os, gpu")
         set_clause = ", ".join(f"{c.strip()}=?" for c in cols.split(","))
 
         for rec in d.new:
             con.execute(f"""INSERT INTO prices_current (provider, key, {cols}, valid_from, last_checked, source_date)
-                            VALUES (?,?,{','.join('?' * 16)},?,?,?)""",
+                            VALUES (?,?,{','.join('?' * 17)},?,?,?)""",
                         (provider, rec.key, *upsert_values(rec), ts, ts, result.source_date))
         for old, rec in d.changed:
             _archive(con, old, R_CHANGED, ts, run_id, rec.price)
@@ -300,15 +301,16 @@ def renormalize_all(db: Database, rates: dict[str, float]) -> int:
     n = 0
     with db.connect() as con:
         for table in ("prices_current", "prices_archive"):
-            rows = con.execute(f"SELECT id, provider, category, product, unit, price, currency, attributes "
-                               f"FROM {table}").fetchall()
+            rows = con.execute(f"SELECT id, provider, category, product, unit, price, currency, attributes, "
+                               f"price_type FROM {table}").fetchall()
             for r in rows:
                 v = normalize(r["provider"], r["category"], r["product"], r["unit"], r["price"],
-                              r["currency"], json.loads(r["attributes"] or "{}"), rates)
+                              r["currency"], json.loads(r["attributes"] or "{}"), rates, r["price_type"])
                 if table == "prices_current":
                     con.execute("UPDATE prices_current SET unit_norm=?, price_eur=?, price_norm=?, vcpu=?, "
-                                "ram_gb=?, os=? WHERE id=?", (v["unit_norm"], v["price_eur"], v["price_norm"],
-                                                              v["vcpu"], v["ram_gb"], v["os"], r["id"]))
+                                "ram_gb=?, os=?, gpu=? WHERE id=?",
+                                (v["unit_norm"], v["price_eur"], v["price_norm"], v["vcpu"], v["ram_gb"],
+                                 v["os"], v["gpu"], r["id"]))
                 else:
                     con.execute("UPDATE prices_archive SET unit_norm=?, price_eur=?, price_norm=? WHERE id=?",
                                 (v["unit_norm"], v["price_eur"], v["price_norm"], r["id"]))

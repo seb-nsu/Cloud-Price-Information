@@ -1,5 +1,26 @@
 # Changelog
 
+## 2.1.0 – 2026-11-09
+
+- **CI:** GitHub Actions mit Tests (Python 3.11 bis 3.13) und Docker-Build samt Smoke-Test bei jedem Push.
+- **Formatwächter:** Formatprofil je Abruf; fehlende Felder, eingebrochene Preisanzahl, neue Einheiten oder
+  Währungen halten das Ergebnis in der Vorschau und lösen eine Benachrichtigung aus.
+- **Azure:** Größentabelle für B, M, L, N, H, ältere Serien und GPU-Größen. Sie erscheinen jetzt im VM-Vergleich.
+- **Neue Vergleiche:** Speicher, Traffic, Managed Kubernetes, Datenbanken.
+- **Rabatte:** Reservierung, Commitments und Savings Plans gegenüber On-Demand mit Ersparnis, Break-even und
+  Amortisation.
+- **Datenhoheit:** Kennzeichnung und Filter nach Region und Rechtsraum.
+- **Preisänderungs-Bericht** je Monat, Quartal oder Jahr als CSV, Excel oder PDF.
+- **Excel-Export** für Preise, Archiv, Szenarien und Rabatte. **Hochrechnung** von Szenarien mit Wachstum.
+- **Lesende JSON-API** (`/api/preise`, `/api/vergleich`, …), siehe [docs/API.md](docs/API.md).
+- **Neue Anbieter:** Hetzner Cloud (Token nötig), Scaleway, OVHcloud (experimentell, standardmäßig aus).
+  plusserver und IONOS bieten keine öffentliche Preis-API, siehe [docs/ANBIETER.md](docs/ANBIETER.md).
+- **Währungen:** zusätzliche Anzeigewährungen, EZB-Kursverlauf, Seite „Kurse“, Preisverlauf zum damaligen Kurs.
+- **Sprache:** Oberfläche auf Deutsch und Englisch.
+- **Datenbank:** Schema-Version 3 (Formatprofile, Kursverlauf, neue Spalten). Bestehende Datenbanken werden
+  automatisch migriert.
+- **Tests:** 88 statt 58.
+
 ## 2.0.0 – 2026-11-06
 
 Diese Version setzt alle Befunde und Vorschläge aus dem Review um (siehe [docs/REVIEW.md](docs/REVIEW.md)).

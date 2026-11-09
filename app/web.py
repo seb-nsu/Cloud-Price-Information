@@ -15,11 +15,14 @@ from datetime import datetime, timedelta
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-from . import __version__, config, fx, jobs, pages
+from . import __version__, api, config, fx, i18n, jobs, pages, pages_extra
 from .db import Database, now_iso
 from .providers import PROVIDERS
 from .sync import renormalize_all
+from .i18n import t
 from .ui import layout
+
+XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
 log = logging.getLogger(__name__)
 
@@ -127,7 +130,22 @@ class Handler(BaseHTTPRequestHandler):
         return parts, params
 
     def _not_found(self):
-        self._send(layout("Nicht gefunden", '<div class="empty">Seite nicht gefunden.</div>', "", config.BASE_PATH), status=404)
+        self._send(layout(t("Nicht gefunden"), f'<div class="empty">{t("Seite nicht gefunden.")}</div>', "",
+                          config.BASE_PATH), status=404)
+
+    def _set_lang(self) -> None:
+        lang = ""
+        for part in (self.headers.get("Cookie") or "").split(";"):
+            k, _, v = part.strip().partition("=")
+            if k == "pv_lang":
+                lang = v.strip()
+        i18n.set_lang(lang if lang in i18n.LANGS else i18n.default_lang())
+
+    def _download(self, body: bytes, ctype: str, filename: str):
+        self._send(body, ctype, headers={"Content-Disposition": f'attachment; filename="{filename}"'})
+
+    def _json(self, data, status: int = 200):
+        self._send(pages_extra.json_bytes(data), "application/json; charset=utf-8", status)
 
     # -------------------------------------------------------------- GET
     def do_GET(self):
@@ -138,12 +156,29 @@ class Handler(BaseHTTPRequestHandler):
             return
         if not self._guard():
             return
+        self._set_lang()
         db = self.db
         try:
+            if parts == ["sprache"]:
+                lang = params.get("lang", "de") if params.get("lang") in i18n.LANGS else "de"
+                ref = urllib.parse.urlsplit(self.headers.get("Referer", ""))
+                target = ref.path + (f"?{ref.query}" if ref.query else "") if ref.path else config.BASE_PATH
+                if not target.startswith(config.BASE_PATH):
+                    target = config.BASE_PATH
+                self.send_response(HTTPStatus.SEE_OTHER)
+                self.send_header("Location", target)
+                self.send_header("Set-Cookie", f"pv_lang={lang}; Path={config.BASE_PATH}; Max-Age=31536000; SameSite=Lax")
+                self.send_header("Content-Length", "0")
+                self.end_headers()
+                return
+            if parts and parts[0] == "api" and parts[1:] != ["status"]:
+                status, data = api.handle(db, parts[1:], params)
+                self._json(data, status)
+                return
             if not parts:
-                flash = {"gestartet": "Abruf gestartet – die Seite aktualisiert sich, sobald er fertig ist.",
-                         "laeuft": "Für diese Anbieter läuft bereits ein Abruf.",
-                         "kurse": "Wechselkurse aktualisiert."}.get(params.pop("info", ""), "")
+                flash = {"gestartet": t("Abruf gestartet – die Seite aktualisiert sich, sobald er fertig ist."),
+                         "laeuft": t("Für diese Anbieter läuft bereits ein Abruf."),
+                         "kurse": t("Wechselkurse aktualisiert.")}.get(params.pop("info", ""), "")
                 self._send(pages.page_prices(db, params, CSRF_TOKEN, flash))
             elif parts == ["archiv"]:
                 self._send(pages.page_archive(db, params))
@@ -157,6 +192,34 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(pages.page_history(db, params))
             elif parts == ["vergleich"]:
                 self._send(pages.page_compare(db, params))
+            elif parts == ["vergleich", "rabatte"]:
+                self._send(pages_extra.page_commitments(db, params))
+            elif parts == ["vergleich", "rabatte.xlsx"]:
+                self._download(pages_extra.export_commitments_xlsx(db, params), XLSX, "rabatte.xlsx")
+            elif len(parts) == 2 and parts[0] == "vergleich":
+                body = pages_extra.page_compare_kind(db, parts[1], params)
+                self._send(body) if body else self._not_found()
+            elif parts == ["bericht"]:
+                self._send(pages_extra.page_report(db, params))
+            elif parts == ["bericht.pdf"]:
+                self._download(pages_extra.export_report_pdf(db, params), "application/pdf",
+                               f"preisbericht_{params.get('zeitraum', 'aktuell')}.pdf")
+            elif parts == ["bericht.xlsx"]:
+                self._download(pages_extra.export_report_xlsx(db, params), XLSX,
+                               f"preisbericht_{params.get('zeitraum', 'aktuell')}.xlsx")
+            elif parts == ["bericht.csv"]:
+                self._download(pages_extra.export_report_csv(db, params), "text/csv; charset=utf-8",
+                               f"preisbericht_{params.get('zeitraum', 'aktuell')}.csv")
+            elif parts == ["kurse"]:
+                flash = {"kurse": t("Wechselkurse aktualisiert.")}.get(params.pop("info", ""), params.pop("meldung", ""))
+                self._send(pages_extra.page_rates(db, params, CSRF_TOKEN, flash))
+            elif parts == ["export.xlsx"]:
+                self._download(pages_extra.export_table_xlsx(db, "prices_current", params), XLSX, "preise_aktuell.xlsx")
+            elif parts == ["archiv.xlsx"]:
+                self._download(pages_extra.export_table_xlsx(db, "prices_archive", params), XLSX, "preise_archiv.xlsx")
+            elif len(parts) == 3 and parts[0] == "szenario" and parts[1].isdigit() and parts[2] == "export.xlsx":
+                body = pages_extra.export_scenario_xlsx(db, int(parts[1]))
+                self._download(body, XLSX, f"szenario_{parts[1]}.xlsx") if body else self._not_found()
             elif parts == ["szenarien"]:
                 self._send(pages.page_scenarios(db, CSRF_TOKEN))
             elif parts == ["szenario-hinzufuegen"]:
@@ -181,20 +244,22 @@ class Handler(BaseHTTPRequestHandler):
                 self._not_found()
         except Exception:
             log.exception("Fehler bei GET %s", self.path)
-            self._send(layout("Fehler", '<div class="empty">Interner Fehler – siehe Server-Log.</div>', "",
+            self._send(layout(t("Fehler"), f'<div class="empty">{t("Interner Fehler – siehe Server-Log.")}</div>', "",
                               config.BASE_PATH), status=500)
 
     # -------------------------------------------------------------- POST
     def do_POST(self):
         if not self._guard():
             return
+        self._set_lang()
         parts, _ = self._route()
         length = min(int(self.headers.get("Content-Length", "0") or 0), 20_000)
         form = {k: v[-1] for k, v in urllib.parse.parse_qs(self.rfile.read(length).decode("utf-8")).items()}
         # CSRF-Schutz über Token (funktioniert auch hinter Reverse-Proxys mit umgeschriebenem Host)
         if not hmac.compare_digest(form.get("csrf", ""), CSRF_TOKEN):
-            self._send(layout("Formular abgelaufen", '<div class="empty">Das Formular ist abgelaufen (z. B. nach einem '
-                              'Neustart). Bitte Seite neu laden und erneut absenden.</div>', "", config.BASE_PATH), status=403)
+            self._send(layout(t("Formular abgelaufen"), '<div class="empty">' + t(
+                "Das Formular ist abgelaufen (z. B. nach einem Neustart). Bitte Seite neu laden und erneut absenden.")
+                + '</div>', "", config.BASE_PATH), status=403)
             return
         db = self.db
         try:
@@ -210,7 +275,27 @@ class Handler(BaseHTTPRequestHandler):
             elif parts == ["kurse"]:
                 fx.refresh(db, force=True)
                 renormalize_all(db, fx.get_rates(db))
-                self._redirect("?info=kurse")
+                self._redirect("kurse?info=kurse" if "kurse" in (self.headers.get("Referer") or "") else "?info=kurse")
+            elif parts == ["kurse", "verlauf"]:
+                try:
+                    msg = fx.refresh_history(db, full=True)
+                except Exception as exc:  # noqa: BLE001
+                    msg = t("Kursverlauf konnte nicht geladen werden: {e}", e=exc)
+                self._redirect("kurse?" + urllib.parse.urlencode({"meldung": msg}))
+            elif len(parts) == 3 and parts[0] == "szenario" and parts[1].isdigit() and parts[2] == "einstellungen":
+                with db.connect() as con:
+                    con.execute("UPDATE scenarios SET months=?, growth_pct=? WHERE id=?",
+                                (max(1, min(120, int(_num(form.get("months"), 12)))),
+                                 max(-100.0, min(1000.0, _num(form.get("growth_pct"), 0.0))), int(parts[1])))
+                self._redirect(f"szenario/{parts[1]}")
+            elif len(parts) == 5 and parts[0] == "szenario" and parts[2] == "position" and parts[4] == "aendern":
+                growth = form.get("growth_pct", "").strip()
+                with db.connect() as con:
+                    con.execute("UPDATE scenario_items SET quantity=?, growth_pct=? WHERE id=? AND scenario_id=?",
+                                (max(0.0, _num(form.get("quantity"), 1.0)),
+                                 None if growth == "" else max(-100.0, min(1000.0, _num(growth, 0.0))),
+                                 int(parts[3]), int(parts[1])))
+                self._redirect(f"szenario/{parts[1]}")
             elif parts == ["szenarien"]:
                 sid = self._create_scenario(form.get("name", "").strip() or "Neues Szenario", form.get("note", ""))
                 self._redirect(f"szenario/{sid}")
@@ -218,18 +303,17 @@ class Handler(BaseHTTPRequestHandler):
                 sid = form.get("scenario_id", "neu")
                 if sid == "neu" or not sid.isdigit():
                     sid = self._create_scenario(form.get("name", "").strip() or "Neues Szenario", "")
-                try:
-                    qty = float(form.get("quantity", "1").replace(",", "."))
-                except ValueError:
-                    qty = 1.0
+                qty = _num(form.get("quantity"), 1.0)
+                growth = form.get("growth_pct", "").strip()
+                growth_v = None if growth == "" else _num(growth, 0.0)
                 with db.connect() as con:
                     p = con.execute("SELECT product FROM prices_current WHERE provider=? AND key=?",
                                     (form.get("provider", ""), form.get("key", ""))).fetchone()
                     if p and con.execute("SELECT 1 FROM scenarios WHERE id=?", (int(sid),)).fetchone():
-                        con.execute("INSERT INTO scenario_items (scenario_id, variant, provider, key, quantity, note, label) "
-                                    "VALUES (?,?,?,?,?,?,?)", (int(sid), (form.get("variant") or "A")[:20],
-                                                               form["provider"], form["key"], qty,
-                                                               form.get("note", "")[:200], p["product"]))
+                        con.execute("INSERT INTO scenario_items (scenario_id, variant, provider, key, quantity, note, label, "
+                                    "growth_pct) VALUES (?,?,?,?,?,?,?,?)",
+                                    (int(sid), (form.get("variant") or "A")[:20], form["provider"], form["key"], qty,
+                                     form.get("note", "")[:200], p["product"], growth_v))
                 self._redirect(f"szenario/{sid}")
             elif len(parts) == 5 and parts[0] == "szenario" and parts[2] == "position" and parts[4] == "loeschen":
                 with db.connect() as con:
@@ -243,13 +327,21 @@ class Handler(BaseHTTPRequestHandler):
                 self._not_found()
         except Exception:
             log.exception("Fehler bei POST %s", self.path)
-            self._send(layout("Fehler", '<div class="empty">Interner Fehler – siehe Server-Log.</div>', "",
+            self._send(layout(t("Fehler"), f'<div class="empty">{t("Interner Fehler – siehe Server-Log.")}</div>', "",
                               config.BASE_PATH), status=500)
 
     def _create_scenario(self, name: str, note: str) -> int:
         with self.db.connect() as con:
             return con.execute("INSERT INTO scenarios (name, note, created_at) VALUES (?,?,?)",
                                (name[:120], note[:500], now_iso())).lastrowid
+
+
+def _num(v, default: float) -> float:
+    try:
+        x = float(str(v).replace(",", "."))
+        return x if x == x and abs(x) != float("inf") else default
+    except (TypeError, ValueError):
+        return default
 
 
 # ------------------------------------------------------------------ optionaler Zeitplan

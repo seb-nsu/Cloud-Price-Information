@@ -22,11 +22,33 @@ archiv_aufbewahrung_monate = 36
 # /health/details meldet „warnung“, wenn ein aktiver Anbieter länger nicht erfolgreich abgerufen wurde
 warnung_nach_tagen = 14
 
+# Formatwächter: vergleicht jeden Abruf mit dem Profil des letzten übernommenen Abrufs
+# (fehlende Felder, eingebrochene Preisanzahl je Bereich/Kategorie, neue Einheiten, Währungswechsel).
+#   "freigabe" – bei Auffälligkeiten Vorschau erzwingen und benachrichtigen
+#   "warnen"   – nur melden (Abrufprotokoll, Benachrichtigung)
+#   "aus"      – abgeschaltet
+formatwaechter = "freigabe"
+formatwaechter_einbruch = 0.3   # Rückgang der Preisanzahl um mehr als 30 % gilt als Einbruch
+
+# Sprache der Oberfläche: "de" oder "en" (Umschalter oben rechts; Umgebungsvariable PV_LANG hat Vorrang)
+sprache = "de"
+
 # ---------------------------------------------------------------------------
 [waehrung]
 # EZB-Referenzkurse werden bei jedem Abruf (max. 1× täglich) geladen.
 # Fallback, falls die EZB nicht erreichbar ist (Einheiten je 1 EUR):
 fallback_kurse = { USD = 1.10, GBP = 0.85 }
+# Zusätzliche Anzeigewährungen neben EUR (Preise, Vergleiche, Szenarien, API)
+anzeige = ["USD"]
+# Historische EZB-Kurse für den Preisverlauf (letzte 90 Tage automatisch; vollständig: python3 -m app kurse --verlauf)
+verlauf_laden = true
+
+# ---------------------------------------------------------------------------
+[datenhoheit]
+# Ergänzungen zur eingebauten Zuordnung Region -> Land und Anbieter -> Rechtsraum (ISO-Ländercodes).
+# Beispiele:
+# regionen = { "eu-de-02" = "DE" }
+# anbieter = { "ionos" = "DE" }
 
 # ---------------------------------------------------------------------------
 [benachrichtigung]
@@ -97,3 +119,21 @@ enabled = true
 url = "https://calculator.otc-service.com/en/open-telekom-price-api/"
 regions = ["eu-de", "eu-nl"]
 services = ["ecs", "ecsnoc", "memo", "gpu", "evs", "obs", "cce", "rds", "dcs", "eip", "elb", "nat", "vpn", "sfs"]
+
+# ---------------------------------------------------------------------------
+[providers.hetzner]
+enabled = true
+# API-Token über Umgebungsvariable HCLOUD_TOKEN (Leserechte genügen) – ohne Token wird übersprungen
+locations = []                                    # leer = alle, z. B. ["fsn1", "nbg1", "hel1"]
+include_deprecated = false
+
+# ---------------------------------------------------------------------------
+[providers.scaleway]
+enabled = true
+zones = ["fr-par", "nl-ams", "pl-waw"]            # leer = alle; Präfix genügt (fr-par -> fr-par-1/2/3)
+
+# ---------------------------------------------------------------------------
+[providers.ovh]
+enabled = false                                   # experimentell, siehe docs/ANBIETER.md
+subsidiary = "DE"
+kategorien = []                                   # leer = alle, z. B. ["Compute", "Storage"]

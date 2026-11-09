@@ -1,0 +1,73 @@
+{
+ "pricing": {
+  "currency": "EUR",
+  "vat_rate": "19.000000",
+  "image": {
+   "price_per_gb_month": {
+    "net": "0.0110000000",
+    "gross": "0.0130900000"
+   }
+  },
+  "volume": {
+   "price_per_gb_month": {
+    "net": "0.0440000000",
+    "gross": "0.0523600000"
+   }
+  },
+  "server_backup": {
+   "percentage": "20.0000000000"
+  },
+  "primary_ips": [
+   {
+    "type": "ipv4",
+    "prices": [
+     {
+      "location": "fsn1",
+      "price_hourly": {
+       "net": "0.0008",
+       "gross": "0.00095"
+      },
+      "price_monthly": {
+       "net": "0.5000000000",
+       "gross": "0.5950000000"
+      }
+     }
+    ]
+   }
+  ],
+  "floating_ips": [
+   {
+    "type": "ipv4",
+    "prices": [
+     {
+      "location": "fsn1",
+      "price_monthly": {
+       "net": "3.0000000000",
+       "gross": "3.5700000000"
+      }
+     }
+    ]
+   }
+  ],
+  "load_balancer_types": [
+   {
+    "id": 1,
+    "name": "lb11",
+    "prices": [
+     {
+      "location": "fsn1",
+      "price_hourly": {
+       "net": "0.0090",
+       "gross": "0.0107"
+      },
+      "price_monthly": {
+       "net": "5.3900000000",
+       "gross": "6.4100000000"
+      }
+     }
+    ]
+   }
+  ],
+  "server_types": []
+ }
+}

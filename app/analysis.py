@@ -7,19 +7,30 @@ import re
 from .db import Database
 from .models import PT_ON_DEMAND
 from .normalize import U_GB, U_GB_MONTH, U_MONTH, U_REQ, U_TOKENS
+from .sovereignty import Classifier
 
 GCP_EXCLUDE = re.compile(r"sole tenancy|custom|premium|commitment|extended|preemptible|spot|reserved", re.I)
 
 
 # ------------------------------------------------------------------ VM-Vergleich
 def compare_vms(db: Database, vcpu: float, ram: float, os_: str = "linux", top_n: int = 3,
-                region_like: str = "") -> dict[str, list[dict]]:
-    """Günstigste On-Demand-Optionen je Anbieter für mind. `vcpu` vCPU und `ram` GB RAM (€/Monat)."""
+                region_like: str = "", gpu: float = 0, souv: str = "") -> dict[str, list[dict]]:
+    """Günstigste On-Demand-Optionen je Anbieter für mind. `vcpu` vCPU und `ram` GB RAM (€/Monat).
+
+    `gpu` = 0: nur Größen ohne GPU; > 0: mindestens so viele GPUs.
+    `souv`: Filter Datenhoheit ("", "eu", "eu_souveraen"), siehe sovereignty.py.
+    """
     out: dict[str, list[dict]] = {}
+    cls = Classifier()
     args: list = [vcpu, ram, PT_ON_DEMAND]
-    sql = ("SELECT provider, key, product, region, price_norm, vcpu, ram_gb, os FROM prices_current "
+    sql = ("SELECT provider, key, product, region, price_norm, vcpu, ram_gb, os, gpu FROM prices_current "
            "WHERE category='Compute' AND unit_norm='Monat' AND price_norm IS NOT NULL "
            "AND vcpu >= ? AND ram_gb >= ? AND price_type = ?")
+    if gpu > 0:
+        sql += " AND gpu >= ?"
+        args.append(gpu)
+    else:
+        sql += " AND (gpu IS NULL OR gpu = 0)"
     if os_:
         sql += " AND os = ?"
         args.append(os_)
@@ -30,14 +41,17 @@ def compare_vms(db: Database, vcpu: float, ram: float, os_: str = "linux", top_n
     with db.connect() as con:
         for r in con.execute(sql, args):
             lst = out.setdefault(r["provider"], [])
-            if len(lst) < top_n:
+            if len(lst) < top_n and cls.matches(r["provider"], r["region"], souv):
                 lst.append({"kind": "Flavor", "label": r["product"], "region": r["region"],
                             "eur_month": r["price_norm"], "vcpu": r["vcpu"], "ram": r["ram_gb"],
-                            "provider": r["provider"], "key": r["key"]})
-        if os_ in ("", "linux"):
+                            "gpu": r["gpu"], "provider": r["provider"], "key": r["key"],
+                            "souv": cls.classify(r["provider"], r["region"])})
+        if os_ in ("", "linux") and not gpu:
             for opt in _component_options(con, vcpu, ram, region_like):
-                lst = out.setdefault(opt["provider"], [])
-                lst.append(opt)
+                if cls.matches(opt["provider"], opt["region"], souv):
+                    opt["souv"] = cls.classify(opt["provider"], opt["region"])
+                    out.setdefault(opt["provider"], []).append(opt)
+    out = {p: v for p, v in out.items() if v}
     for p in out:
         out[p] = sorted(out[p], key=lambda o: o["eur_month"])[:top_n]
     return dict(sorted(out.items(), key=lambda kv: kv[1][0]["eur_month"] if kv[1] else 1e18))
@@ -60,7 +74,7 @@ def _component_options(con, vcpu: float, ram: float, region_like: str) -> list[d
         if "Core" in p and "Ram" in p:
             opts.append({"kind": "Komponenten", "label": f"{family} (Custom: {vcpu:g} vCPU / {ram:g} GB)",
                          "region": region, "eur_month": vcpu * p["Core"] + ram * p["Ram"],
-                         "vcpu": vcpu, "ram": ram, "provider": "gcp", "key": ""})
+                         "vcpu": vcpu, "ram": ram, "gpu": None, "provider": "gcp", "key": ""})
     # IONOS: vCPU-Server / Dedicated Core-Server mit Preis je vCPU/Core und je GB RAM
     ion: dict[str, dict] = {}
     for r in con.execute("SELECT product, attributes, price_norm FROM prices_current WHERE provider='ionos' "
@@ -79,7 +93,7 @@ def _component_options(con, vcpu: float, ram: float, region_like: str) -> list[d
             opts.append({"kind": "Komponenten", "label": f"{family}: {core_name.split(' · ')[-1]} "
                                                          f"({vcpu:g} vCPU / {ram:g} GB)",
                          "region": "de", "eur_month": vcpu * core_price + ram * p["ram"],
-                         "vcpu": vcpu, "ram": ram, "provider": "ionos", "key": ""})
+                         "vcpu": vcpu, "ram": ram, "gpu": None, "provider": "ionos", "key": ""})
     return opts
 
 
@@ -162,3 +176,36 @@ def sparkline_svg(points: list[tuple[str, float]], width: int = 520, height: int
     return (f'<svg class="spark" viewBox="0 0 {width} {height}" width="{width}" height="{height}" '
             f'role="img" aria-label="Preisverlauf"><path d="{path}" fill="none" stroke="currentColor" '
             f'stroke-width="2"/>{dots}</svg>')
+
+
+# ------------------------------------------------------------------ Szenario-Hochrechnung
+def projection(lines: list[dict], months: int, default_growth_pct: float) -> dict:
+    """Hochrechnung je Variante über `months` Monate mit monatlichem Wachstum (Zinseszins).
+
+    Wachstum je Position: eigener Wert (`growth_pct` der Position) oder Standard des Szenarios.
+    Mengen mit Einheit „Monat“ (Anzahl VMs, Cluster …) werden auf ganze Stück aufgerundet, Mengen in GB,
+    Token usw. bleiben anteilig. Positionen ohne Preis fließen nicht ein (Variante = unvollständig).
+    -> {"months": [1..n], "variants": {V: {"monthly": [...], "total": x, "first": a, "last": b}}}
+    """
+    import math as _m
+    months = max(1, min(120, int(months or 12)))
+    out: dict[str, dict] = {}
+    for ln in lines:
+        it = ln["item"]
+        v = out.setdefault(it["variant"], {"monthly": [0.0] * months, "incomplete": False})
+        if ln.get("eur_month") is None or not it["quantity"]:
+            v["incomplete"] = True
+            continue
+        unit_price = ln["eur_month"] / it["quantity"]
+        g = it.get("growth_pct")
+        g = default_growth_pct if g is None else g
+        whole = (ln.get("price") or {}).get("unit_norm") == U_MONTH
+        for m in range(months):
+            qty = it["quantity"] * (1 + g / 100) ** m
+            if whole:
+                qty = _m.ceil(qty - 1e-9)
+            v["monthly"][m] += qty * unit_price
+    for v in out.values():
+        v["total"] = sum(v["monthly"])
+        v["first"], v["last"] = v["monthly"][0], v["monthly"][-1]
+    return {"months": list(range(1, months + 1)), "variants": dict(sorted(out.items()))}

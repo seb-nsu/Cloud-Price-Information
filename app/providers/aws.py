@@ -35,7 +35,8 @@ ALIASES = {"Usage Type": ("usageType", "Usage Type"), "Operation": ("operation",
            "Region Code": ("Region Code", "regionCode")}
 ATTR_COLS = ("SKU", "RateCode", "Instance Type", "vCPU", "Memory", "Operating System",
              "Database Engine", "Usage Type", "Volume API Name", "Storage Class", "EffectiveDate",
-             "PriceDescription", "Deployment Option", "License Model")
+             "PriceDescription", "Deployment Option", "License Model", "GPU",
+             "LeaseContractLength", "PurchaseOption", "OfferingClass", "Unit")
 
 
 def read_offer_csv(fh: TextIO) -> tuple[dict[str, str], list[str], "csv._reader"]:

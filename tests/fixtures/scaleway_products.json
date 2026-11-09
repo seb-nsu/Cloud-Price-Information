@@ -1,0 +1,348 @@
+{
+ "products": [
+  {
+   "sku": "/compute/pop2_2c_8g/run_fr-par-1",
+   "service_category": "Compute",
+   "product": "POP2-2C-8G Instance",
+   "variant": "POP2-2C-8G Instance - fr-par-1",
+   "description": "POP2-2C-8G Instance - fr-par-1",
+   "locality": {
+    "zone": "fr-par-1"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 107000000
+    }
+   },
+   "properties": {
+    "hardware": {
+     "cpu": {
+      "virtual": {
+       "count": 2
+      },
+      "threads": 2
+     },
+     "ram": {
+      "size": 8589934592
+     }
+    },
+    "instance": {
+     "range": "General Purpose",
+     "offer_id": "pop2_2c_8g"
+    }
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   },
+   "status": "general_availability"
+  },
+  {
+   "sku": "/compute/pop2_4c_16g/run_fr-par-1",
+   "service_category": "Compute",
+   "product": "POP2-4C-16G Instance",
+   "variant": "POP2-4C-16G Instance - fr-par-1",
+   "description": "POP2-4C-16G Instance - fr-par-1",
+   "locality": {
+    "zone": "fr-par-1"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 214000000
+    }
+   },
+   "properties": {
+    "hardware": {
+     "cpu": {
+      "virtual": {
+       "count": 4
+      },
+      "threads": 4
+     },
+     "ram": {
+      "size": 17179869184
+     }
+    },
+    "instance": {
+     "range": "General Purpose",
+     "offer_id": "pop2_4c_16g"
+    }
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   },
+   "status": "general_availability"
+  },
+  {
+   "sku": "/compute/dev1_s/run_nl-ams-1",
+   "service_category": "Compute",
+   "product": "DEV1-S Instance",
+   "variant": "DEV1-S Instance - nl-ams-1",
+   "description": "DEV1-S Instance - nl-ams-1",
+   "locality": {
+    "zone": "nl-ams-1"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 8800000
+    }
+   },
+   "properties": {
+    "hardware": {
+     "cpu": {
+      "virtual": {
+       "count": 2
+      },
+      "threads": 2
+     },
+     "ram": {
+      "size": 2147483648
+     }
+    },
+    "instance": {
+     "range": "General Purpose",
+     "offer_id": "dev1_s"
+    }
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   },
+   "status": "general_availability"
+  },
+  {
+   "sku": "/compute/l4_1_24g/run_fr-par-1",
+   "service_category": "Compute",
+   "product": "L4-1-24G Instance",
+   "variant": "L4-1-24G Instance - fr-par-1",
+   "description": "L4-1-24G Instance - fr-par-1",
+   "locality": {
+    "zone": "fr-par-1"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 750000000
+    }
+   },
+   "properties": {
+    "hardware": {
+     "cpu": {
+      "virtual": {
+       "count": 8
+      },
+      "threads": 8
+     },
+     "ram": {
+      "size": 51539607552
+     },
+     "gpu": {
+      "count": 1,
+      "type": "L4"
+     }
+    },
+    "instance": {
+     "range": "General Purpose",
+     "offer_id": "l4_1_24g"
+    }
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   },
+   "status": "general_availability"
+  },
+  {
+   "sku": "/compute/old/run_fr-par-1",
+   "service_category": "Compute",
+   "product": "GP1-XS Instance",
+   "variant": "GP1-XS Instance - fr-par-1",
+   "description": "GP1-XS Instance - fr-par-1",
+   "locality": {
+    "zone": "fr-par-1"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 80000000
+    }
+   },
+   "properties": {
+    "hardware": {
+     "cpu": {
+      "virtual": {
+       "count": 4
+      },
+      "threads": 4
+     },
+     "ram": {
+      "size": 17179869184
+     }
+    },
+    "instance": {
+     "range": "General Purpose",
+     "offer_id": "old"
+    }
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   },
+   "status": "end_of_life"
+  },
+  {
+   "sku": "/storage/object/standard/fr-par",
+   "service_category": "Storage",
+   "product": "Object Storage Standard",
+   "variant": "Standard",
+   "description": "Object Storage Standard per GB per month",
+   "locality": {
+    "region": "fr-par"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 14600000
+    }
+   },
+   "properties": {
+    "object_storage": {}
+   },
+   "unit_of_measure": {
+    "unit": "gigabyte",
+    "size": 1
+   }
+  },
+  {
+   "sku": "/storage/block/5k/fr-par-1",
+   "service_category": "Storage",
+   "product": "Block Storage 5K IOPS",
+   "variant": "5K",
+   "description": "Block Storage 5K per GB per month",
+   "locality": {
+    "zone": "fr-par-1"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 86000000
+    }
+   },
+   "properties": {
+    "block_storage": {}
+   },
+   "unit_of_measure": {
+    "unit": "gigabyte",
+    "size": 1
+   }
+  },
+  {
+   "sku": "/k8s/kapsule/mutualized",
+   "service_category": "Containers",
+   "product": "Kubernetes Kapsule Control Plane (Mutualized)",
+   "variant": "mutualized",
+   "description": "Free control plane",
+   "locality": {
+    "region": "fr-par"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 0
+    }
+   },
+   "properties": {
+    "kubernetes": {}
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   }
+  },
+  {
+   "sku": "/k8s/kapsule/dedicated4",
+   "service_category": "Containers",
+   "product": "Kubernetes Kapsule Dedicated Control Plane 4",
+   "variant": "dedicated-4",
+   "description": "Dedicated control plane",
+   "locality": {
+    "region": "fr-par"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 137000000
+    }
+   },
+   "properties": {
+    "kubernetes": {}
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   }
+  },
+  {
+   "sku": "/db/postgresql/db-pro2-xxs",
+   "service_category": "Managed Databases",
+   "product": "Managed Database for PostgreSQL DB-PRO2-XXS",
+   "variant": "db-pro2-xxs",
+   "description": "PostgreSQL",
+   "locality": {
+    "region": "fr-par"
+   },
+   "price": {
+    "retail_price": {
+     "currency_code": "EUR",
+     "units": 0,
+     "nanos": 195000000
+    }
+   },
+   "properties": {
+    "managed_relational_database": {},
+    "hardware": {
+     "cpu": {
+      "virtual": {
+       "count": 2
+      }
+     },
+     "ram": {
+      "size": 8589934592
+     }
+    }
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   }
+  },
+  {
+   "sku": "/nopreis",
+   "service_category": "Compute",
+   "product": "Kein Preis",
+   "variant": "x",
+   "description": "x",
+   "locality": {
+    "zone": "fr-par-1"
+   },
+   "unit_of_measure": {
+    "unit": "hour",
+    "size": 1
+   }
+  }
+ ],
+ "total_count": 11
+}

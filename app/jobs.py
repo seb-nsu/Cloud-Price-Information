@@ -16,7 +16,7 @@ import threading
 import traceback
 from datetime import datetime, timedelta, timezone
 
-from . import fx, notify, retention
+from . import fx, notify, retention, watch
 from .config import load_config
 from .db import Database, now_iso
 from .models import ProviderNotConfigured
@@ -89,14 +89,14 @@ class _Heartbeat:
 
 
 def _finish(db: Database, run_id: int, status: str, message: str, stats: dict, source: str = "",
-            warnings: str = "", violations: str = "", source_date: str = "") -> None:
+            warnings: str = "", violations: str = "", source_date: str = "", format_alerts: str = "") -> None:
     values = (now_iso(), status, message[:2000], source, stats.get("n_fetched", 0), stats.get("n_new", 0),
               stats.get("n_changed", 0), stats.get("n_removed", 0), stats.get("n_unchanged", 0),
               stats.get("n_renamed", 0), stats.get("n_dupes", 0), warnings[:4000], violations[:2000],
-              source_date, run_id)
+              source_date, format_alerts[:4000], run_id)
     sql = ("UPDATE fetch_runs SET finished_at=?, status=?, message=?, source=?, n_fetched=?, n_new=?, "
            "n_changed=?, n_removed=?, n_unchanged=?, n_renamed=?, n_dupes=?, warnings=?, violations=?, "
-           "source_date=? WHERE id=?")
+           "source_date=?, format_alerts=? WHERE id=?")
     for attempt in range(3):
         try:
             with db.connect() as con:
@@ -142,7 +142,7 @@ def run_provider(db: Database, name: str, triggered_by: str = "manuell", run_id:
             return {"provider": name, "status": ST_SKIPPED, "message": "Abruf läuft bereits"}
 
     status, message, stats, source, source_date = ST_OK, "", {}, "", ""
-    warnings, violations, extra = [], [], []
+    warnings, violations, extra, alerts = [], [], [], []
     with _Heartbeat(db, run_id):
         try:
             cfg = load_config()
@@ -154,6 +154,11 @@ def run_provider(db: Database, name: str, triggered_by: str = "manuell", run_id:
             log.info("Abruf %s gestartet (Lauf %s)", name, run_id)
             result = PROVIDERS[name].fetch(pcfg)
             source, source_date, warnings = result.source, result.source_date, list(result.warnings)
+            try:
+                alerts = watch.check(db, name, run_id, result, guard)
+            except Exception as exc:  # noqa: BLE001 – Formatwächter darf den Abruf nicht verhindern
+                log.warning("Formatwächter fehlgeschlagen: %s", exc)
+                extra.append(f"Formatwächter fehlgeschlagen ({type(exc).__name__})")
 
             d = stage(db, name, run_id, result, guard)
             stats, violations = d.stats(), d.violations
@@ -164,6 +169,10 @@ def run_provider(db: Database, name: str, triggered_by: str = "manuell", run_id:
             if violations:
                 status = ST_REVIEW
                 message = "Schutzregel verletzt – bitte prüfen und ggf. trotzdem übernehmen: " + " ".join(violations)
+            elif alerts and watch.blocks_apply(guard) and d.n_existing:
+                status = ST_REVIEW
+                message = ("Formatwächter: Antwortformat auffällig – bitte prüfen und ggf. übernehmen: "
+                           + " ".join(alerts[:3]))
             elif auto_apply or mode == "bei_warnung":
                 stats = {**apply_staged(db, name, run_id, rates).stats(), "n_dupes": d.n_dupes}
                 extra += _after_apply(db, name, run_id)
@@ -180,10 +189,17 @@ def run_provider(db: Database, name: str, triggered_by: str = "manuell", run_id:
             status, message = ST_ERROR, f"{type(exc).__name__}: {exc}"
             log.error("Abruf %s fehlgeschlagen:\n%s", name, traceback.format_exc())
         finally:
+            if alerts and status != ST_REVIEW:
+                extra.append(f"Formatwächter: {len(alerts)} Auffälligkeit(en)")
             if extra:
                 message = (message + " · " if message else "") + " · ".join(extra)
             _finish(db, run_id, status, message, stats, source, "\n".join(warnings),
-                    "\n".join(violations), source_date)
+                    "\n".join(violations), source_date, "\n".join(alerts))
+            if alerts:
+                try:
+                    notify.send_format_alert(db, PROVIDERS[name].LABEL, run_id, alerts)
+                except Exception as exc:  # noqa: BLE001
+                    log.warning("Benachrichtigung Formatwächter fehlgeschlagen: %s", exc)
     with db.connect() as con:
         return dict(con.execute("SELECT * FROM fetch_runs WHERE id=?", (run_id,)).fetchone())
 

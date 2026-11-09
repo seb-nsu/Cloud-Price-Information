@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Tests (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Syntaxprüfung
+        run: python -m compileall -q app scripts tests
+      - name: Tests (ohne Netzwerk)
+        run: python -m unittest discover -s tests -t . -v
+      - name: Beispieldaten erzeugen
+        run: python scripts/beispieldaten.py "$RUNNER_TEMP/beispiel"
+
+  docker:
+    name: Docker-Build und Smoke-Test
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Image bauen
+        run: docker build -t preisverwaltung:ci .
+      - name: Container starten und /health prüfen
+        run: |
+          docker run -d --name pv -p 8080:8080 -e PV_USER=ci -e PV_PASSWORD=ci preisverwaltung:ci
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8080/health; then break; fi
+            sleep 2
+          done
+          curl -fsS http://127.0.0.1:8080/health | grep -q ok
+          # Anmeldung erforderlich
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/)" = "401"
+          # mit Anmeldung: Startseite und JSON-API
+          curl -fsS -u ci:ci http://127.0.0.1:8080/ | grep -q "Aktuelle Preise"
+          curl -fsS -u ci:ci http://127.0.0.1:8080/api/anbieter | python3 -m json.tool > /dev/null
+          docker inspect --format '{{.State.Health.Status}}' pv || true
+      - name: Container-Log
+        if: always()
+        run: docker logs pv || true

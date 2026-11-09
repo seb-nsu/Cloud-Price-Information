@@ -1,0 +1,361 @@
+{
+ "catalogId": 1,
+ "locale": {
+  "currencyCode": "EUR",
+  "subsidiary": "DE",
+  "taxRate": 19
+ },
+ "plans": [
+  {
+   "planCode": "project",
+   "invoiceName": "Public Cloud Project",
+   "addonFamilies": [
+    {
+     "name": "instance",
+     "exclusive": false,
+     "mandatory": false,
+     "addons": [
+      "b3-8.consumption",
+      "b3-8.consumption.3AZ",
+      "c3-16.consumption",
+      "l4-90.consumption",
+      "b2-7.monthly.postpaid"
+     ]
+    },
+    {
+     "name": "volume",
+     "addons": [
+      "volume.high-speed.consumption"
+     ]
+    },
+    {
+     "name": "storage",
+     "addons": [
+      "storage-standard.consumption"
+     ]
+    }
+   ],
+   "pricings": []
+  }
+ ],
+ "addons": [
+  {
+   "planCode": "b3-8.consumption",
+   "invoiceName": "b3-8",
+   "product": "b3-8",
+   "pricingType": "consumption",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "consumption"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "hour",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 5050000,
+     "formattedPrice": "",
+     "tax": 959500,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ],
+   "blobs": {
+    "technical": {
+     "cpu": {
+      "cores": 2
+     },
+     "memory": {
+      "size": 8
+     }
+    }
+   }
+  },
+  {
+   "planCode": "b3-8.consumption.3AZ",
+   "invoiceName": "b3-8",
+   "product": "b3-8",
+   "pricingType": "consumption",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "consumption"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "hour",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 5560000,
+     "formattedPrice": "",
+     "tax": 1056400,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ],
+   "blobs": {
+    "technical": {
+     "cpu": {
+      "cores": 2
+     },
+     "memory": {
+      "size": 8
+     }
+    }
+   }
+  },
+  {
+   "planCode": "c3-16.consumption",
+   "invoiceName": "c3-16",
+   "product": "c3-16",
+   "pricingType": "consumption",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "consumption"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "hour",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 9620000,
+     "formattedPrice": "",
+     "tax": 1827800,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ],
+   "blobs": {
+    "technical": {
+     "cpu": {
+      "cores": 4
+     },
+     "memory": {
+      "size": 16
+     }
+    }
+   }
+  },
+  {
+   "planCode": "l4-90.consumption",
+   "invoiceName": "l4-90",
+   "product": "l4-90",
+   "pricingType": "consumption",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "consumption"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "hour",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 100000000,
+     "formattedPrice": "",
+     "tax": 19000000,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ],
+   "blobs": {
+    "technical": {
+     "cpu": {
+      "cores": 22
+     },
+     "memory": {
+      "size": 90
+     },
+     "gpu": {
+      "number": 1,
+      "model": "L4"
+     }
+    }
+   }
+  },
+  {
+   "planCode": "b2-7.monthly.postpaid",
+   "invoiceName": "b2-7",
+   "product": "b2-7",
+   "pricingType": "consumption",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "consumption"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "month",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 2420000000,
+     "formattedPrice": "",
+     "tax": 459800000,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ],
+   "blobs": {
+    "technical": {
+     "cpu": {
+      "cores": 2
+     },
+     "memory": {
+      "size": 7
+     }
+    }
+   }
+  },
+  {
+   "planCode": "volume.high-speed.consumption",
+   "invoiceName": "Volume High Speed",
+   "product": "volume",
+   "pricingType": "consumption",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "consumption"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "hour",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 11000,
+     "formattedPrice": "",
+     "tax": 2090,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ],
+   "blobs": {}
+  },
+  {
+   "planCode": "storage-standard.consumption",
+   "invoiceName": "Object Storage Standard",
+   "product": "storage-standard",
+   "pricingType": "consumption",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "consumption"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "hour",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 1000,
+     "formattedPrice": "",
+     "tax": 190,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ],
+   "blobs": {}
+  },
+  {
+   "planCode": "credit",
+   "invoiceName": "Credit",
+   "pricings": [
+    {
+     "phase": 1,
+     "capacities": [
+      "installation"
+     ],
+     "commitment": 0,
+     "description": "",
+     "interval": 1,
+     "intervalUnit": "none",
+     "quantity": {
+      "min": 1,
+      "max": 1
+     },
+     "repeat": {
+      "min": 1,
+      "max": 1
+     },
+     "price": 1000000,
+     "formattedPrice": "",
+     "tax": 190000,
+     "mode": "default",
+     "strategy": "tiered",
+     "mustBeCompleted": false,
+     "type": "consumption"
+    }
+   ]
+  }
+ ]
+}

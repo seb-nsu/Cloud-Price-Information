@@ -5,7 +5,7 @@ Jedes Modul stellt bereit:
     INFO: str              – kurzer Hinweis zur Quelle
     fetch(cfg) -> FetchResult
 """
-from . import aws, azure, gcp, ionos, otc, stackit
+from . import aws, azure, gcp, hetzner, ionos, otc, ovh, scaleway, stackit
 
 PROVIDERS = {
     "stackit": stackit,
@@ -14,4 +14,7 @@ PROVIDERS = {
     "azure": azure,
     "aws": aws,
     "gcp": gcp,
+    "hetzner": hetzner,
+    "scaleway": scaleway,
+    "ovh": ovh,
 }

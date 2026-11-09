@@ -4,7 +4,7 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from app.db import Database
+from app.db import SCHEMA_VERSION, Database
 from app.models import FetchResult
 from app.sync import SyncAborted, apply_result, apply_staged, compute_diff, stage
 
@@ -153,7 +153,7 @@ class MigrationTests(unittest.TestCase):
             con.close()
             db = Database(path)
             with db.connect() as con:
-                self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], 2)
+                self.assertEqual(con.execute("PRAGMA user_version").fetchone()[0], SCHEMA_VERSION)
                 row = con.execute("SELECT scope, unit_norm FROM prices_current").fetchone()
                 self.assertEqual((row[0], row[1]), ("", ""))
             s = apply_result(db, "x", fr([rec("a", 1.0, scope="neu")]), 1)

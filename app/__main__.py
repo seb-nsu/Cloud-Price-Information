@@ -6,6 +6,7 @@
     python -m app freigeben 42                 Vorschau von Abruf 42 übernehmen
     python -m app verwerfen 42                 Vorschau von Abruf 42 verwerfen
     python -m app kurse                        EZB-Wechselkurse laden und Normierung neu berechnen
+    python -m app kurse --verlauf              zusätzlich den vollständigen historischen Kursverlauf laden
     python -m app backup /pfad/preise.db       konsistente Datensicherung (inkl. WAL)
     python -m app aufraeumen                   Archiv-Aufbewahrung jetzt anwenden
 """
@@ -35,7 +36,8 @@ def main(argv=None) -> int:
     for name in ("freigeben", "verwerfen"):
         p = sub.add_parser(name, help=f"Vorschau eines Abrufs {name}")
         p.add_argument("run_id", type=int)
-    sub.add_parser("kurse", help="EZB-Kurse laden")
+    k = sub.add_parser("kurse", help="EZB-Kurse laden")
+    k.add_argument("--verlauf", action="store_true", help="vollständigen EZB-Kursverlauf seit 1999 laden")
     b = sub.add_parser("backup", help="Datensicherung")
     b.add_argument("ziel")
     sub.add_parser("aufraeumen", help="Archiv-Aufbewahrung anwenden")
@@ -50,6 +52,8 @@ def main(argv=None) -> int:
         return 0
     if args.cmd == "kurse":
         print(fx.refresh(db, force=True))
+        if args.verlauf:
+            print(fx.refresh_history(db, full=True))
         print(f"{renormalize_all(db, fx.get_rates(db))} Preise neu normiert")
         return 0
     if args.cmd == "backup":

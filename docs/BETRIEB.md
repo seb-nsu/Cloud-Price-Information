@@ -22,6 +22,9 @@ docker compose logs -f
 | `PV_USER`, `PV_PASSWORD` | Basic Auth für die Oberfläche (empfohlen) |
 | `PV_SECRET` | fester Schlüssel für Formular-Token (sonst nach Neustart neu → offene Formulare neu laden) |
 | `GCP_API_KEY` | Google Cloud Billing API |
+| `HCLOUD_TOKEN` | Hetzner Cloud API (Token mit Leserechten); ohne Token wird Hetzner übersprungen |
+| `SCW_SECRET_KEY` | Scaleway (optional, der Katalog ist öffentlich) |
+| `PV_LANG` | Sprache der Oberfläche erzwingen (`de` oder `en`) |
 | `PV_BASE_PATH` | Pfad hinter einem Reverse-Proxy, z. B. `/preise/` |
 | `PV_BASE_URL` | öffentliche URL für Links in Benachrichtigungen |
 | `PV_WEBHOOK_URL` | Webhook für Benachrichtigungen |
@@ -38,7 +41,32 @@ Der Server muss diese Hosts per HTTPS erreichen können:
 - `cloudbilling.googleapis.com`
 - `docs.ionos.com`
 - `calculator.otc-service.com`
+- `api.hetzner.cloud` (wenn Hetzner aktiv)
+- `api.scaleway.com` (wenn Scaleway aktiv)
+- `eu.api.ovh.com` (wenn OVHcloud aktiviert wird)
 - `www.ecb.europa.eu`
+
+## Neue Einstellungen in Version 2.1
+
+| Abschnitt / Schlüssel | Standard | Bedeutung |
+|---|---|---|
+| `[general] formatwaechter` | `"freigabe"` | Formatwächter: `freigabe` (Vorschau erzwingen), `warnen` (nur melden) oder `aus` |
+| `[general] formatwaechter_einbruch` | `0.3` | Rückgang der Preisanzahl je Bereich/Kategorie, ab dem gewarnt wird |
+| `[general] sprache` | `"de"` | Voreinstellung der Oberfläche (`de`/`en`); der Umschalter oben rechts gilt je Browser |
+| `[waehrung] anzeige` | `["USD"]` | zusätzliche Anzeigewährungen neben EUR (alle EZB-Währungen möglich) |
+| `[waehrung] verlauf_laden` | `true` | EZB-Kursverlauf der letzten 90 Tage automatisch laden |
+| `[datenhoheit] regionen`, `anbieter` | leer | Ergänzungen zur Zuordnung Region → Land und Anbieter → Rechtsraum |
+| `[providers.hetzner]`, `[providers.scaleway]`, `[providers.ovh]` | | neue Anbieter, siehe [ANBIETER.md](ANBIETER.md) |
+
+Der vollständige EZB-Kursverlauf seit 1999 lässt sich mit `python3 -m app kurse --verlauf` laden.
+
+## CI
+
+`.github/workflows/ci.yml` läuft bei jedem Push und Pull Request:
+
+- **Tests** mit Python 3.11, 3.12 und 3.13: Syntaxprüfung, alle Unit-Tests, Erzeugung der Beispieldaten.
+- **Docker:** Image bauen, Container starten und prüfen, dass `/health` antwortet, ohne Anmeldung 401 kommt,
+  die Startseite lädt und `/api/anbieter` gültiges JSON liefert.
 
 ## Reverse-Proxy
 
@@ -110,6 +138,8 @@ diesen Test durchgehen:
    - leere Dienste
 5. Im **VM-Vergleich** eine bekannte Größe prüfen, z. B. 2 vCPU / 8 GB, und die Plausibilität der €/Monat-Werte kontrollieren.
 6. Einen Anbieter erneut abrufen. Erwartet wird „keine Änderungen“ und eine direkte Übernahme.
+7. Nach dem zweiten Abruf je Anbieter: Im Abrufprotokoll dürfen keine Formatwächter-Meldungen stehen.
+8. Unter „Vergleich“ die Seiten Speicher, Traffic, Kubernetes, Datenbanken und Rabatte stichprobenartig prüfen.
 
 Richtwerte für die Anzahl Preise mit der Standardkonfiguration (grobe Erwartung, kann abweichen):
 
@@ -121,6 +151,9 @@ Richtwerte für die Anzahl Preise mit der Standardkonfiguration (grobe Erwartung
 | Azure | mehrere tausend bis zehntausende |
 | AWS | mehrere tausend |
 | Google | einige tausend |
+| Hetzner | ca. 100–300 |
+| Scaleway | einige hundert bis wenige tausend |
+| OVHcloud | einige hundert bis wenige tausend |
 
 Wenn ein Modul scheitert, die Meldung aus dem Abrufprotokoll und gegebenenfalls einen Auszug der Rohantwort
 sichern. Damit lässt sich das Modul gezielt anpassen.

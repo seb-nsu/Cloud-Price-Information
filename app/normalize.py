@@ -16,6 +16,8 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from . import azure_sizes
+
 HOURS_PER_MONTH = 730.0
 DAYS30_TO_MONTH = HOURS_PER_MONTH / 720.0
 
@@ -87,7 +89,6 @@ def normalize_unit(unit: str) -> tuple[str, float]:
 
 # ------------------------------------------------------------------ VM-Merkmale
 _OTC_SIZE = {"small": 1, "medium": 1, "large": 2, "xlarge": 4}
-_AZURE_RAM_PER_VCPU = {"D": 4, "E": 8, "F": 2}
 
 
 def _num(v) -> float | None:
@@ -134,17 +135,25 @@ def extract_vm(provider: str, product: str, attrs: dict[str, Any]) -> tuple[floa
         return vcpu, ram, _os_from_text(str(attrs.get("osUnit", "")) or product)
 
     if provider == "azure":
-        sku = attrs.get("armSkuName", "")
-        # nur aktuelle Generationen (v4+) mit festem RAM-Verhältnis; vCPU-eingeschränkte
-        # Varianten (z. B. D8-4s) auslassen
-        m = re.match(r"^Standard_([A-Z]+)(\d+)(-\d+)?([a-z]*)_v(\d+)$", sku)
-        if not m or m.group(3) or int(m.group(5)) < 4 or m.group(1)[0] not in "DEF":
+        size = azure_sizes.lookup(attrs.get("armSkuName", ""))
+        if not size:
             return None, None, ""
-        vcpu = float(m.group(2))
-        ratio = _AZURE_RAM_PER_VCPU[m.group(1)[0]]
-        if m.group(1)[0] == "D" and "l" in m.group(4):   # Dl-Serie: 2 GB/vCPU
-            ratio = 2
-        return vcpu, vcpu * ratio, _os_from_text(attrs.get("productName", "") + " " + product)
+        return size[0], size[1], _os_from_text(attrs.get("productName", "") + " " + product)
+
+    if provider == "scaleway":
+        if attrs.get("vcpu") is None:
+            return None, None, ""
+        return _num(attrs.get("vcpu")), _num(attrs.get("ram_gb")), _os_from_text(product)
+
+    if provider == "hetzner":
+        if attrs.get("cores") is None:
+            return None, None, ""
+        return _num(attrs.get("cores")), _num(attrs.get("memory")), "linux"
+
+    if provider == "ovh":
+        if attrs.get("vcpu") is None:
+            return None, None, ""
+        return _num(attrs.get("vcpu")), _num(attrs.get("ram_gb")), _os_from_text(product)
 
     if provider == "ionos":
         m = re.search(r"(\d+)\s*/\s*(\d+)\s*GB", product)
@@ -153,9 +162,34 @@ def extract_vm(provider: str, product: str, attrs: dict[str, Any]) -> tuple[floa
     return None, None, ""
 
 
+def extract_gpu(provider: str, product: str, attrs: dict[str, Any]) -> float | None:
+    """Anzahl GPUs eines Compute-Flavors (Teil-GPUs als Bruch), sonst None."""
+    if provider == "azure":
+        size = azure_sizes.lookup(attrs.get("armSkuName", ""))
+        return size[2] if size and size[2] else None
+    if provider == "aws":
+        n = _num(attrs.get("GPU"))
+        return n if n else None
+    if provider in ("scaleway", "ovh", "hetzner", "stackit", "otc"):
+        n = _num(attrs.get("gpu") or attrs.get("GPU") or attrs.get("gpus"))
+        return n if n else None
+    return None
+
+
+def reservation_months(provider: str, price_type: str, unit: str, attrs: dict[str, Any]) -> float | None:
+    """Laufzeit in Monaten, wenn der Preis die Gesamtzahlung für die Laufzeit ist (Azure-Reservierungen)."""
+    term = str(attrs.get("reservationTerm", ""))
+    if provider == "azure" and term and price_type.startswith("Reserviert"):
+        m = re.match(r"(\d+)\s*(year|jahr)", term.lower())
+        if m:
+            return 12.0 * int(m.group(1))
+    return None
+
+
 # ------------------------------------------------------------------ Gesamt
 def normalize(provider: str, category: str, product: str, unit: str, price: float,
-              currency: str, attrs: dict[str, Any], rates: dict[str, float]) -> dict[str, Any]:
+              currency: str, attrs: dict[str, Any], rates: dict[str, float],
+              price_type: str = "") -> dict[str, Any]:
     if currency == "EUR":
         price_eur = price
     elif currency in rates and rates[currency] > 0:
@@ -163,12 +197,20 @@ def normalize(provider: str, category: str, product: str, unit: str, price: floa
     else:
         price_eur = None
     unit_norm, factor = normalize_unit(unit)
+    months = reservation_months(provider, price_type, unit, attrs)
+    if months:   # Azure: retailPrice einer Reservierung = Gesamtpreis der Laufzeit (Einheit "1 Hour")
+        unit_norm, factor = U_MONTH, 1.0 / months
     price_norm = round(price_eur * factor, 8) if (price_eur is not None and unit_norm) else None
     if price_eur is not None:
         price_eur = round(price_eur, 10)
-    vcpu = ram = None
+    vcpu = ram = gpu = None
     os_ = ""
     if category == "Compute" and unit_norm == U_MONTH:
         vcpu, ram, os_ = extract_vm(provider, product, attrs)
+        if vcpu is not None:
+            gpu = extract_gpu(provider, product, attrs)
+    elif category == "Datenbank" and unit_norm == U_MONTH:
+        vcpu, ram, os_ = extract_vm(provider, product, attrs)   # z. B. AWS RDS, OTC RDS (Instanzgröße)
+        os_ = ""
     return {"price_eur": price_eur, "unit_norm": unit_norm, "price_norm": price_norm,
-            "vcpu": vcpu, "ram_gb": ram, "os": os_}
+            "vcpu": vcpu, "ram_gb": ram, "os": os_, "gpu": gpu}

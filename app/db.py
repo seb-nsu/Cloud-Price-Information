@@ -152,7 +152,36 @@ CREATE TABLE IF NOT EXISTS scenario_items (
 );
 """
 
-SCHEMA_VERSION = 2
+# Version 3: Formatwächter, GPU-Merkmal, Szenario-Hochrechnung, Kursverlauf
+V3_COLUMNS = [
+    ("prices_current", "gpu", "REAL"),
+    ("fetch_runs", "format_alerts", "TEXT DEFAULT ''"),
+    ("scenarios", "months", "INTEGER NOT NULL DEFAULT 12"),
+    ("scenarios", "growth_pct", "REAL NOT NULL DEFAULT 0"),
+    ("scenario_items", "growth_pct", "REAL"),
+]
+
+SCHEMA_V3_TABLES = """
+-- Formatprofil je Abruf (Grundlage für den Formatwächter)
+CREATE TABLE IF NOT EXISTS format_profiles (
+    run_id      INTEGER PRIMARY KEY,
+    provider    TEXT NOT NULL,
+    created_at  TEXT NOT NULL,
+    data        TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS ix_profiles_provider ON format_profiles (provider, run_id);
+
+-- historische EZB-Referenzkurse (Einheiten je 1 EUR)
+CREATE TABLE IF NOT EXISTS fx_history (
+    currency   TEXT NOT NULL,
+    rate_date  TEXT NOT NULL,
+    rate       REAL NOT NULL,
+    PRIMARY KEY (currency, rate_date)
+);
+CREATE INDEX IF NOT EXISTS ix_runs_finished ON fetch_runs (status, finished_at);
+"""
+
+SCHEMA_VERSION = 3
 
 
 def now_iso() -> str:
@@ -166,12 +195,24 @@ def _migrate(con: sqlite3.Connection) -> None:
         con.execute("PRAGMA user_version = 1")
         version = 1
     if version < 2:
-        for table, column, definition in V2_COLUMNS:
-            cols = {r[1] for r in con.execute(f"PRAGMA table_info({table})")}
-            if column not in cols:
-                con.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
+        _add_columns(con, V2_COLUMNS)
         con.executescript(SCHEMA_V2_TABLES)
         con.execute("PRAGMA user_version = 2")
+        version = 2
+    if version < 3:
+        _add_columns(con, V3_COLUMNS)
+        con.executescript(SCHEMA_V3_TABLES)
+        # bisherige Tageskurse als ersten Verlaufspunkt übernehmen
+        con.execute("INSERT OR IGNORE INTO fx_history (currency, rate_date, rate) "
+                    "SELECT currency, rate_date, rate FROM fx_rates")
+        con.execute("PRAGMA user_version = 3")
+
+
+def _add_columns(con: sqlite3.Connection, columns) -> None:
+    for table, column, definition in columns:
+        cols = {r[1] for r in con.execute(f"PRAGMA table_info({table})")}
+        if column not in cols:
+            con.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
 
 
 class Database:

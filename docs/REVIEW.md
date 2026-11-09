@@ -73,5 +73,5 @@ liegen in `tests/`.
 
 - **Live-Test** aller Anbieter-Schnittstellen (siehe [BETRIEB.md](BETRIEB.md#go-live-test)). Er war in der
   Entwicklungsumgebung nicht möglich.
-- RAM-Ableitung für Azure-Serien außerhalb von D, E und F (z. B. B, M, L, N) sowie GPU-Größen: Diese Größen
-  erscheinen derzeit nicht im VM-Vergleich.
+- ~~RAM-Ableitung für Azure-Serien außerhalb von D, E und F (z. B. B, M, L, N) sowie GPU-Größen~~: in Version
+  2.1.0 über die Größentabelle `app/azure_sizes.py` umgesetzt (Test `AzureSizeTests`).

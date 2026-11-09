@@ -78,13 +78,32 @@ def send(db: Database, provider_label: str, run_id: int, opener=urllib.request.u
     if not changes:
         return []
     subject, text = build_message(provider_label, run_id, changes)
-    status = []
+    return deliver(cfg, subject, text, {"run_id": run_id, "changes": changes[:200]}, opener, smtp_factory)
 
+
+def send_format_alert(db: Database, provider_label: str, run_id: int, alerts: list[str],
+                      opener=urllib.request.urlopen, smtp_factory=smtplib.SMTP) -> list[str]:
+    """Meldet Auffälligkeiten des Formatwächters (abschaltbar mit formatwaechter = false)."""
+    cfg = load_config().get("benachrichtigung", {})
+    if not cfg.get("aktiv", False) or not cfg.get("formatwaechter", True):
+        return []
+    base = os.environ.get("PV_BASE_URL", "").rstrip("/")
+    subject = f"Preisverwaltung: Formatwächter meldet Auffälligkeiten bei {provider_label}"
+    lines = [subject, ""] + [f"• {a}" for a in alerts[:20]]
+    if base:
+        lines += ["", f"Details: {base}/lauf/{run_id}"]
+    return deliver(cfg, subject, "\n".join(lines), {"run_id": run_id, "format_alerts": alerts},
+                   opener, smtp_factory)
+
+
+def deliver(cfg: dict, subject: str, text: str, extra: dict, opener=urllib.request.urlopen,
+            smtp_factory=smtplib.SMTP) -> list[str]:
+    status = []
     url = os.environ.get("PV_WEBHOOK_URL", "")
     if url:
         fmt = cfg.get("webhook_format", "text")
         payload = {"text": text} if fmt in ("text", "teams", "slack", "mattermost") else \
-            {"subject": subject, "text": text, "run_id": run_id, "changes": changes[:200]}
+            {"subject": subject, "text": text, **extra}
         req = urllib.request.Request(url, data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
                                      headers={"Content-Type": "application/json", "User-Agent": USER_AGENT})
         try:
