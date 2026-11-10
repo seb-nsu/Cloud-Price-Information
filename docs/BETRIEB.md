@@ -3,7 +3,7 @@
 ## Installation (Docker)
 
 ```bash
-git clone https://github.com/seb-nsu/price_management.git && cd price_management
+git clone https://github.com/seb-nsu/Cloud-Price-Information.git && cd Cloud-Price-Information
 cp .env.example .env            # mindestens PV_USER / PV_PASSWORD setzen
 docker compose up -d --build
 docker compose logs -f

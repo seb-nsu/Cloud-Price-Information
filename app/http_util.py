@@ -14,7 +14,7 @@ from . import __version__
 
 log = logging.getLogger(__name__)
 
-USER_AGENT = f"Preisverwaltung/{__version__} (+https://github.com/seb-nsu/price_management)"
+USER_AGENT = f"Preisverwaltung/{__version__} (+https://github.com/seb-nsu/Cloud-Price-Information)"
 TIMEOUT = 120
 SECRET_PARAMS = ("key", "api_key", "apikey", "token", "access_token")
 

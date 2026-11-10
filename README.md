@@ -1,6 +1,6 @@
-# price_management – Preisverwaltung für Cloud-Listenpreise
+# Cloud Price Information – Preisverwaltung für Cloud-Listenpreise
 
-[![CI](https://github.com/seb-nsu/price_management/actions/workflows/ci.yml/badge.svg)](https://github.com/seb-nsu/price_management/actions/workflows/ci.yml)
+[![CI](https://github.com/seb-nsu/Cloud-Price-Information/actions/workflows/ci.yml/badge.svg)](https://github.com/seb-nsu/Cloud-Price-Information/actions/workflows/ci.yml)
 
 Fragt auf Knopfdruck die **öffentlichen Listenpreise** von **STACKIT, IONOS Cloud, Open Telekom Cloud,
 Microsoft Azure, AWS, Google Cloud, Hetzner Cloud, Scaleway und OVHcloud** (experimentell) ab und zeigt immer den neuesten Stand an. Ältere Preise wandern
@@ -101,3 +101,7 @@ Die 88 Tests laufen ohne Netzwerk, auch in der CI bei jedem Push. Abgedeckt sind
 - Hetzner, Scaleway, OVHcloud, Azure-Größentabelle, Datenhoheit und Formatwächter
 - Vergleichsseiten, Rabatte, Bericht, Hochrechnung, Excel- und PDF-Export
 - Kursverlauf, JSON-API und englische Oberfläche
+
+## Lizenz
+
+MIT, siehe [LICENSE](LICENSE).
