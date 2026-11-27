@@ -11,7 +11,7 @@ from .i18n import t
 from .models import CATEGORIES, PRICE_TYPES
 from .providers import PROVIDERS
 from .sovereignty import Classifier
-from .ui import (PAGE_SIZE, csrf_field, e, float_param, fmt_alt, fmt_dt, fmt_eur, fmt_eur_fine, fmt_int, fmt_money, fmt_pct,
+from .ui import (PAGE_SIZE, best_label, csrf_field, e, float_param, fmt_alt, fmt_dt, fmt_eur, fmt_eur_fine, fmt_int, fmt_money, fmt_pct,
                  fmt_price, int_param, layout, line_chart, pager, qs, souv_badge)
 
 
@@ -76,10 +76,14 @@ def status_badge(status: str, title: str = "") -> str:
 
 # ------------------------------------------------------------------ Aktuelle Preise
 def page_prices(db: Database, params: dict, csrf: str, flash: str = "") -> bytes:
-    cards = []
+    # UX-Review 11/2026: Anbieter als kompakte Tabelle statt Kachelwand, damit die Preise ohne Scrollen sichtbar sind.
+    # Eingeklappt, solange nichts zu tun ist; offen bei offener Freigabe, Fehler oder fehlendem Zugang.
+    prov_rows, attention, n_review = [], False, 0
     for p in provider_overview(db):
         last = p["last"]
-        if p["running"]:
+        if not p["enabled"]:
+            badge = f'<span class="badge b-none">{t("deaktiviert")}</span>'
+        elif p["running"]:
             badge = status_badge("running")
         elif last:
             badge = status_badge(last["status"], last["message"])
@@ -87,22 +91,41 @@ def page_prices(db: Database, params: dict, csrf: str, flash: str = "") -> bytes
             badge = f'<span class="badge b-none">{t("noch nie abgerufen")}</span>'
         detail = ""
         if p["review"]:
+            n_review += 1
+            attention = True
             detail = f'<a href="lauf/{p["review"]}"><b>{t("Vorschau prüfen und freigeben")} →</b></a>'
         elif last and last["status"] == "ok":
             detail = (f'<a href="lauf/{last["id"]}">' + t("+{n} neu · {c} geändert · {r} entfallen", n=last["n_new"],
                                                          c=last["n_changed"], r=last["n_removed"]) + '</a>')
         elif last and last["message"]:
-            detail = e(last["message"][:160])
+            msg = last["message"]
+            if "nicht gesetzt" in msg:  # fehlender Token: direkt zur Eingabe statt Verweis auf die Doku
+                detail = f'<a href="zugaenge">{t("Zugang fehlt – hier eintragen")} →</a>'
+            else:
+                detail = e(msg[:160])
+            attention = attention or last["status"] == "error" or "nicht gesetzt" in msg
         if last and last.get("format_alerts"):
             n_alerts = len(last["format_alerts"].splitlines())
             detail += (f'<br><a href="lauf/{last["id"]}" class="up">⚠ '
                        + t("Formatwächter: {n} Auffälligkeit(en)", n=n_alerts) + '</a>')
-        disabled = "disabled" if p["running"] or not p["enabled"] else ""
-        cards.append(f"""<div class="card"><h3>{e(p['label'])} {badge}</h3>
-<div class="info">{e(p['info'])}</div><div class="n">{fmt_int(p['count'])}</div>
-<div class="meta">{t("Preise aktuell · Stand")} {fmt_dt(p['last_ok'])}</div><div class="meta">{detail}</div>
-<form method="post" action="aktualisieren">{csrf_field(csrf)}<input type="hidden" name="provider" value="{p['name']}">
-<button data-run="{p['name']}" {disabled}>{t('Deaktiviert') if not p['enabled'] else t('Aktualisieren')}</button></form></div>""")
+        if not p["enabled"]:
+            action = '<span class="small">—</span>'
+        else:
+            label = t("Jetzt abrufen") if not last else t("Aktualisieren")
+            disabled = "disabled" if p["running"] else ""
+            action = (f'<form method="post" action="aktualisieren">{csrf_field(csrf)}'
+                      f'<input type="hidden" name="provider" value="{p["name"]}">'
+                      f'<button data-run="{p["name"]}" {disabled}>{label}</button></form>')
+        count = fmt_int(p["count"]) if last or p["count"] else "—"
+        prov_rows.append(f'<tr><td><b>{e(p["label"])}</b><br><span class="small">{e(p["info"])}</span></td>'
+                         f'<td>{badge}</td><td class="num">{count}</td><td class="small">{fmt_dt(p["last_ok"])}</td>'
+                         f'<td class="small">{detail}</td><td>{action}</td></tr>')
+    n_prov = len(prov_rows)
+    summary = t("{n} Anbieter", n=n_prov) + (" · " + t("{n} Freigabe(n) offen", n=n_review) if n_review else "")
+    providers_html = (f'<details class="providers"{" open" if attention else ""}><summary>{summary} – '
+                      f'{t("Status und Abruf je Anbieter")}</summary><div class="provwrap"><table class="prov"><tr><th>{t("Anbieter")}</th>'
+                      f'<th>{t("Status")}</th><th>{t("Preise")}</th><th>{t("Stand")}</th><th></th><th></th></tr>'
+                      + "".join(prov_rows) + "</table></div></details>")
 
     where, args = where_clause(params)
     sort = params.get("sort", "anbieter")
@@ -127,7 +150,7 @@ def page_prices(db: Database, params: dict, csrf: str, flash: str = "") -> bytes
 <div class="small"><span id="running" data-label="{t('Abruf läuft:')}"></span> <a href="kurse">{e(rate_txt)}</a></div>
 <form method="post" action="aktualisieren">{csrf_field(csrf)}<input type="hidden" name="provider" value="all">
 <button class="primary" data-run="all">{t("Alle Anbieter aktualisieren")}</button></form></div>""")
-    body.append(f'<div class="cards">{"".join(cards)}</div>')
+    body.append(providers_html)
     body.append(filter_form(db, "prices_current", params, "", export="export"))
 
     if not rows:
@@ -151,8 +174,8 @@ def page_prices(db: Database, params: dict, csrf: str, flash: str = "") -> bytes
     for r in rows:
         hist = (f'<a href="verlauf{qs({"provider": r["provider"], "key": r["key"]})}">{t("Verlauf")} ({r["n_hist"]})</a>'
                 if r["n_hist"] else "")
-        add = (f'<a class="plus" title="{t("Zu Szenario hinzufügen")}" '
-               f'href="szenario-hinzufuegen{qs({"provider": r["provider"], "key": r["key"]})}">＋</a>')
+        add = (f'<a class="plus" title="{t("Zu Szenario hinzufügen")}" aria-label="{t("Zu Szenario hinzufügen")}" '
+               f'href="szenario-hinzufuegen{qs({"provider": r["provider"], "key": r["key"]})}">＋ {t("Szenario")}</a>')
         norm = (f'{fmt_eur(r["price_norm"])}<br><span class="small">/{e(t(r["unit_norm"]))}</span>'
                 + fmt_alt(r["price_norm"], rates, curs)) if r["price_norm"] is not None else '<span class="small">—</span>'
         vm = ""
@@ -186,8 +209,9 @@ def filter_form(db: Database, table: str, params: dict, action: str, export: str
     types = [x for x in PRICE_TYPES if x in types_present] + sorted(types_present - set(PRICE_TYPES))
     hid = "".join(f'<input type="hidden" name="{h}" value="{e(params[h])}">' for h in hidden if params.get(h))
     regions = distinct(db, table, "region", params)
-    export_link = (f'<a class="btn" href="{export}.csv{qs(params, seite=None)}">{t("CSV-Export")}</a>'
-                   f'<a class="btn" href="{export}.xlsx{qs(params, seite=None)}">{t("Excel-Export")}</a>') if export else ""
+    export_link = (f'<details class="menu"><summary class="btn">{t("Exportieren")} ▾</summary><div>'
+                   f'<a href="{export}.csv{qs(params, seite=None)}">{t("CSV-Export")}</a>'
+                   f'<a href="{export}.xlsx{qs(params, seite=None)}">{t("Excel-Export")}</a></div></details>') if export else ""
     return f"""<form class="filters" method="get" action="{action or './'}">{hid}
 {select("provider", t("Anbieter"), list(PROVIDERS), {k: m.LABEL for k, m in PROVIDERS.items()})}
 {select("category", t("Kategorie"), cats)}
@@ -430,14 +454,14 @@ def page_compare(db: Database, params: dict) -> bytes:
     for prov, opts in res.items():
         for i, o in enumerate(opts):
             diff = (o["eur_month"] / best - 1) * 100 if best else 0
-            add = (f'<a class="plus" href="szenario-hinzufuegen{qs({"provider": o["provider"], "key": o["key"]})}">＋</a>'
+            add = (f'<a class="plus" title="{t("Zu Szenario hinzufügen")}" href="szenario-hinzufuegen{qs({"provider": o["provider"], "key": o["key"]})}">＋ {t("Szenario")}</a>'
                    if o["key"] else "")
             gpu_cell = f'<td class="num">{o["gpu"]:g}</td>' if gpu else ""
             body.append(f'<tr><td>{e(plabel(prov)) if i == 0 else ""}</td><td>{e(o["label"])}</td>'
                         f'<td class="small">{e(t(o["kind"]))}</td><td>{e(o["region"])}</td><td>{souv_badge(o.get("souv"))}</td>'
                         f'<td class="num">{o["vcpu"]:g}</td><td class="num">{o["ram"]:g}</td>{gpu_cell}'
                         f'<td class="num"><b>{fmt_eur(o["eur_month"])}</b></td>{alt_cells(o["eur_month"], rates, curs)}'
-                        f'<td class="num">{t("günstigste") if diff < 0.05 else fmt_pct(diff, True, 0)}</td><td>{add}</td></tr>')
+                        f'<td class="num">{best_label() if diff < 0.05 else fmt_pct(diff, True, 0)}</td><td>{add}</td></tr>')
     body.append("</table>")
     return layout(t("Vergleich"), "".join(body), "vergleich", config.BASE_PATH)
 
@@ -607,3 +631,31 @@ def status_json(db: Database) -> bytes:
     return json.dumps({"providers": {p["name"]: {"label": p["label"], "running": p["running"], "count": p["count"],
                                                  "last_ok": p["last_ok"], "review": p["review"]}
                                      for p in provider_overview(db)}}).encode()
+
+
+# ------------------------------------------------------------------ Zugänge (Anbieter-Tokens)
+def page_zugaenge(csrf: str, allowed: bool, flash: str = "") -> bytes:
+    from . import zugaenge
+
+    body = [f'<h1>{t("Zugänge der Anbieter")}</h1>']
+    if flash:
+        body.append(f'<div class="flash">{e(flash)}</div>')
+    body.append(f'<p class="small">{t("Die meisten Anbieter brauchen keinen Zugang. Google Cloud und Hetzner verlangen einen Schlüssel; er wird nur auf diesem Server gespeichert.")}</p>')
+    if not allowed:
+        body.append(f'<div class="warnbox">{t("Tokens lassen sich nur ändern, wenn ein Zugangsschutz (PV_USER/PV_PASSWORD) gesetzt ist oder die Seite auf dem Server selbst geöffnet wird.")}</div>')
+    st = zugaenge.status()
+    labels = {"umgebung": t("gesetzt (Umgebungsvariable)"), "gespeichert": t("gespeichert"), "fehlt": t("fehlt")}
+    rows = []
+    for key, provider, hint in zugaenge.KEYS:
+        cls = "b-ok" if st[key] != "fehlt" else "b-skipped"
+        field = ("" if not allowed or st[key] == "umgebung" else
+                 f'<input type="password" name="{key}" autocomplete="off" placeholder="{t("neuen Wert eingeben (- = löschen)")}">')
+        rows.append(f'<tr><td><b>{e(provider)}</b><br><span class="small">{e(t(hint))} · <code>{key}</code></span></td>'
+                    f'<td><span class="badge {cls}">{labels[st[key]]}</span></td><td>{field}</td></tr>')
+    table = f'<table><tr><th>{t("Anbieter")}</th><th>{t("Status")}</th><th></th></tr>{"".join(rows)}</table>'
+    if allowed:
+        body.append(f'<form method="post" action="zugaenge" class="stack">{csrf_field(csrf)}{table}'
+                    f'<p><button class="primary">{t("Speichern")}</button></p></form>')
+    else:
+        body.append(table)
+    return layout(t("Zugänge"), "".join(body), "zugaenge", config.BASE_PATH)

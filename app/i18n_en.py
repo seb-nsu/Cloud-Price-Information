@@ -177,3 +177,22 @@ EN: dict[str, str] = {
     "Vereinigtes Königreich": "United Kingdom", "Norwegen": "Norway", "USA": "USA", "Kanada": "Canada",
     "Singapur": "Singapore", "Australien": "Australia", "Indien": "India", "Japan": "Japan", "Dänemark": "Denmark",
 }
+
+# UX-Review 11/2026
+EN.update({
+    "Cloud-Preise": "Cloud prices", "Menü": "Menu", "Zugänge": "Access", "deaktiviert": "disabled",
+    "Jetzt abrufen": "Fetch now", "Zugang fehlt – hier eintragen": "Access missing – enter it here",
+    "{n} Anbieter": "{n} providers", "{n} Freigabe(n) offen": "{n} approval(s) pending",
+    "Status und Abruf je Anbieter": "status and fetch per provider", "Status": "Status", "Preise": "Prices",
+    "Stand": "As of", "Exportieren": "Export", "Szenario": "Scenario",
+    "Zugänge der Anbieter": "Provider access",
+    "Die meisten Anbieter brauchen keinen Zugang. Google Cloud und Hetzner verlangen einen Schlüssel; er wird nur auf diesem Server gespeichert.":
+        "Most providers need no access. Google Cloud and Hetzner require a key; it is stored only on this server.",
+    "Tokens lassen sich nur ändern, wenn ein Zugangsschutz (PV_USER/PV_PASSWORD) gesetzt ist oder die Seite auf dem Server selbst geöffnet wird.":
+        "Tokens can only be changed when access protection (PV_USER/PV_PASSWORD) is set or the page is opened on the server itself.",
+    "gesetzt (Umgebungsvariable)": "set (environment variable)", "gespeichert": "saved", "fehlt": "missing",
+    "neuen Wert eingeben (- = löschen)": "enter new value (- = delete)", "Speichern": "Save",
+    "Gespeichert: {n}": "Saved: {n}", "Nichts geändert.": "Nothing changed.",
+    "API-Key aus einem Projekt mit aktivierter Cloud Billing API": "API key from a project with the Cloud Billing API enabled",
+    "API-Token mit Leserechten (Hetzner Console → Sicherheit → API-Tokens)": "read-only API token (Hetzner Console → Security → API tokens)",
+})

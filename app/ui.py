@@ -175,7 +175,7 @@ code{font-family:var(--mono);font-size:12px}.row{display:flex;gap:10px;align-ite
 .spark{color:var(--acc);background:var(--card);border:1px solid var(--line);border-radius:10px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
 details summary{cursor:pointer;color:var(--muted);font-size:12px}pre{white-space:pre-wrap;font-size:12px}
-a.plus{text-decoration:none;font-weight:700}
+a.plus{text-decoration:none;font-weight:600;white-space:nowrap;font-size:12px}.best{font-family:system-ui,sans-serif;color:var(--ok);font-weight:600}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}.tabs a{padding:5px 12px;border-radius:99px;
 border:1px solid var(--line);background:#fff;text-decoration:none;color:var(--fg);font-size:13px}
 .tabs a.on{background:var(--acc);border-color:var(--acc);color:#fff}
@@ -185,6 +185,21 @@ border:1px solid var(--line);background:#fff;text-decoration:none;color:var(--fg
 header .lang:hover{color:#fff}.chart{background:var(--card);border:1px solid var(--line);border-radius:10px}
 .chart text{font:11px system-ui,sans-serif;fill:var(--muted)}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+/* UX-Review 11/2026: Anbieter-Tabelle, Export-Menü, Menü-Knopf auf schmalen Bildschirmen */
+details.providers{margin-bottom:14px}details.providers>summary{font-size:13px;color:var(--fg);font-weight:600;padding:6px 0}
+table.prov td{vertical-align:middle}table.prov form{margin:0}
+details.menu{position:relative;display:inline-block}details.menu>summary{list-style:none;color:var(--fg);font-size:14px}
+details.menu>summary::-webkit-details-marker{display:none}
+details.menu>div{position:absolute;right:0;z-index:5;background:#fff;border:1px solid var(--line);border-radius:8px;
+padding:4px;display:flex;flex-direction:column;min-width:150px;box-shadow:0 4px 12px rgba(16,24,40,.08)}
+details.menu>div a{padding:6px 10px;text-decoration:none;color:var(--fg);border-radius:6px}details.menu>div a:hover{background:#f2f4f7}
+.navmenu{display:none}.provwrap{overflow-x:auto}
+.stack input[type=password]{font:inherit;width:100%;max-width:360px;padding:6px 8px;border:1px solid var(--line);border-radius:6px}
+@media (max-width:760px){header{flex-wrap:wrap;height:auto;padding:10px 16px;gap:12px}.mainnav{display:none}
+.navmenu{display:block;order:3;flex-basis:100%}.navmenu>summary{color:#fff;font-size:14px;list-style:none;cursor:pointer}
+.navmenu>summary::-webkit-details-marker{display:none}
+.navmenu[open] nav{display:flex;flex-direction:column;gap:10px;padding:10px 0}
+table.prov td:first-child .small,table.prov th:nth-child(4),table.prov td:nth-child(4){display:none}main{padding:14px}}
 @media print{header,.filters,.noprint,form{display:none!important}main{padding:0}body{background:#fff}}
 """
 
@@ -206,7 +221,7 @@ poll();
 
 NAV = (("preise", "", "Aktuelle Preise"), ("vergleich", "vergleich", "Vergleich"),
        ("szenarien", "szenarien", "Szenarien"), ("bericht", "bericht", "Bericht"), ("archiv", "archiv", "Archiv"),
-       ("protokoll", "protokoll", "Abrufprotokoll"))
+       ("protokoll", "protokoll", "Abrufprotokoll"), ("zugaenge", "zugaenge", "Zugänge"))
 
 
 def layout(title: str, body: str, active: str = "", base: str = "/") -> bytes:
@@ -218,9 +233,15 @@ def layout(title: str, body: str, active: str = "", base: str = "/") -> bytes:
               f'{"English" if other == "en" else "Deutsch"}</a>')
     return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><base href="{e(base)}">
-<title>{e(title)} · {t("Preisverwaltung")}</title><style>{CSS}</style></head>
-<body><header><b>{t("Preisverwaltung")}</b><nav>{nav}</nav>{switch}</header><main>{body}</main>
+<title>{e(title)} · {t("Cloud-Preise")}</title><style>{CSS}</style></head>
+<body><header><b>{t("Cloud-Preise")}</b><nav class="mainnav">{nav}</nav>
+<details class="navmenu"><summary>☰ {t("Menü")}</summary><nav>{nav}</nav></details>{switch}</header><main>{body}</main>
 <script>{JS}</script></body></html>""".encode("utf-8")
+
+
+def best_label() -> str:
+    """„günstigste“ in normaler Schrift, auch in Zahlenspalten (Monospace)."""
+    return f'<span class="best">{t("günstigste")}</span>'
 
 
 def tabs(items: list[tuple[str, str]], active: str) -> str:

@@ -30,12 +30,15 @@ class TempDB:
     def __enter__(self):
         from app import config
         self._old = config.CONFIG_PATH
+        self._old_db = config.DB_PATH
         config.CONFIG_PATH = self.cfg
+        config.DB_PATH = self.dir / "t.db"  # zugaenge.json landet daneben, nicht im Repo
         return self
 
     def __exit__(self, *exc):
         from app import config
         config.CONFIG_PATH = self._old
+        config.DB_PATH = self._old_db
         self.tmp.cleanup()
 
     def rows(self, table: str, where: str = "", args=()):

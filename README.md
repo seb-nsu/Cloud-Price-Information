@@ -1,4 +1,4 @@
-# Cloud Price Information – Preisverwaltung für Cloud-Listenpreise
+# Cloud-Preise (Cloud Price Information) – Listenpreise der Cloud-Anbieter im Blick
 
 [![CI](https://github.com/seb-nsu/Cloud-Price-Information/actions/workflows/ci.yml/badge.svg)](https://github.com/seb-nsu/Cloud-Price-Information/actions/workflows/ci.yml)
 
@@ -35,7 +35,17 @@ Funktionen:
 - Optional: **Benachrichtigung** per Webhook (Teams/Slack/Mattermost) oder E-Mail sowie ein **täglicher Zeitplan**.
 - Die App nutzt **nur die Python-Standardbibliothek**, speichert in **SQLite** und läuft im Docker-Container.
 
-## Schnellstart (Docker)
+## Schnellstart
+
+**Windows:** `start.bat` doppelklicken. **macOS/Linux:** `./start.sh`. Nötig ist nur Python 3.11 oder neuer – keine
+weiteren Pakete, keine Datenbank, kein Docker. Der Browser öffnet `http://127.0.0.1:8080`; dort
+**„Alle Anbieter aktualisieren“** klicken. Der erste Abruf eines Anbieters wird direkt übernommen, spätere Abrufe mit
+Änderungen erscheinen als **„Vorschau prüfen und freigeben“**.
+
+Google Cloud und Hetzner brauchen einen Schlüssel: in der Oberfläche unter **„Zugänge“** eintragen
+(oder wie bisher als Umgebungsvariable `GCP_API_KEY` / `HCLOUD_TOKEN`).
+
+## Auf einem Server (Docker)
 
 ```bash
 cp .env.example .env          # PV_USER/PV_PASSWORD setzen, optional GCP_API_KEY, HCLOUD_TOKEN
@@ -49,7 +59,7 @@ direkt übernommen. Spätere Abrufe mit Änderungen erscheinen als **„Vorschau
 Vor dem Produktivbetrieb bitte den **Go-Live-Test** in [docs/BETRIEB.md](docs/BETRIEB.md#go-live-test) durchführen.
 Die Anbieter-Schnittstellen konnten bei der Entwicklung nicht live getestet werden, siehe [docs/ANBIETER.md](docs/ANBIETER.md).
 
-## Ohne Docker
+## Kommandozeile
 
 Voraussetzung ist Python 3.11 oder neuer.
 
@@ -88,7 +98,7 @@ PV_DB=data/beispiel/preise_beispiel.db python3 -m app serve
 python3 -m unittest discover -s tests -t .
 ```
 
-Die 88 Tests laufen ohne Netzwerk, auch in der CI bei jedem Push. Abgedeckt sind:
+Die 90 Tests laufen ohne Netzwerk, auch in der CI bei jedem Push. Abgedeckt sind:
 
 - Abgleich und Schutzregeln
 - Teilausfälle und Umbenennungen

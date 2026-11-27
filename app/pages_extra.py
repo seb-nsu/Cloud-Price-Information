@@ -13,7 +13,7 @@ from .i18n import t
 from .models import CATEGORIES, PRICE_TYPES
 from .pdf import Report
 from .providers import PROVIDERS
-from .ui import (_num, csrf_field, e, fmt_dt, fmt_eur, fmt_eur_fine, fmt_int, fmt_money, fmt_pct, fmt_price, int_param, layout,
+from .ui import (_num, best_label, csrf_field, e, fmt_dt, fmt_eur, fmt_eur_fine, fmt_int, fmt_money, fmt_pct, fmt_price, int_param, layout,
                  line_chart, qs, souv_badge, tabs)
 
 
@@ -101,13 +101,13 @@ def page_compare_kind(db: Database, slug: str, params: dict) -> bytes | None:
             kind_lbl = " · ".join(t(x) for x in (r["type"], r["class"], r["engine"]) if x)
             sizing = "".join(f'<td class="num">{v:g}</td>' if v else '<td class="small">—</td>'
                              for v in (r["vcpu"], r["ram"])) if kind.sizing else ""
-            add = f'<a class="plus" href="szenario-hinzufuegen{qs({"provider": r["provider"], "key": r["key"]})}">＋</a>'
+            add = f'<a class="plus" title="{t("Zu Szenario hinzufügen")}" href="szenario-hinzufuegen{qs({"provider": r["provider"], "key": r["key"]})}">＋ {t("Szenario")}</a>'
             body.append(
                 f'<tr><td>{e(plabel(prov)) if i == 0 else ""}</td><td title="{e(r["key"])}">{e(r["product"])}'
                 f'<br><span class="small">{e(r["service"])}</span></td><td class="small">{e(kind_lbl)}</td>'
                 f'<td>{e(r["region"])}</td><td>{souv_badge(r["souv"])}</td>{sizing}'
                 f'<td class="num"><b>{fmt_eur_fine(r["eur"])}</b></td>{alt_cells(r["eur"], rates, curs, True)}'
-                f'<td class="num">{t("günstigste") if diff < 0.05 else fmt_pct(diff, True, 0)}</td>'
+                f'<td class="num">{best_label() if diff < 0.05 else fmt_pct(diff, True, 0)}</td>'
                 f'<td class="num small">{fmt_price(r["price"])} {e(r["currency"])}<br>{e(r["unit"])}</td>'
                 f'<td>{add}</td></tr>')
     body.append("</table>")

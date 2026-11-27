@@ -44,6 +44,8 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
 
     db = Database(config.DB_PATH)
+    from . import zugaenge
+    zugaenge.load_into_env()  # in der Oberfläche gespeicherte Anbieter-Tokens
     if args.cmd == "serve":
         web.serve(db, args.host, args.port)
         return 0

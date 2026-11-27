@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import base64
+import os
 import json
 import threading
 import time
@@ -209,6 +210,31 @@ class WebTests(unittest.TestCase):
             self.req(path)
         self.req("/gibtsnicht", expect=404)
         self.req("/lauf/999999", expect=404)
+
+    def test_provider_overview_and_access_page(self):
+        """UX-Review 11/2026: Anbieter als einklappbare Tabelle, offen bei offener Freigabe; Zugänge-Seite."""
+        home = self.req("/")
+        self.assertIn('<details class="providers" open>', home)   # Freigabe offen → aufgeklappt
+        self.assertIn("1 Freigabe(n) offen", home)
+        self.assertIn("Jetzt abrufen", home)                      # nie abgerufene Anbieter
+        self.assertIn("Exportieren", home)
+        self.assertIn("☰", home)                                  # Menü-Knopf für schmale Bildschirme
+        page = self.req("/zugaenge")                              # Aufruf von 127.0.0.1 → darf ändern
+        self.assertIn('name="HCLOUD_TOKEN"', page)
+        with mock.patch.dict("os.environ", {}, clear=False):
+            csrf = web.CSRF_TOKEN
+            self.req("/zugaenge", {"csrf": csrf, "HCLOUD_TOKEN": "tok-123", "GCP_API_KEY": ""})
+            self.assertEqual(os.environ.get("HCLOUD_TOKEN"), "tok-123")
+            self.assertIn("gespeichert", self.req("/zugaenge"))
+            self.req("/zugaenge", {"csrf": csrf, "HCLOUD_TOKEN": "-"})
+            self.assertIsNone(os.environ.get("HCLOUD_TOKEN"))
+
+    def test_access_page_needs_protection_from_remote(self):
+        from app import zugaenge
+        self.assertTrue(zugaenge.allowed("127.0.0.1"))
+        self.assertFalse(zugaenge.allowed("192.168.1.20"))
+        with mock.patch.object(web.config, "AUTH_USER", "u"), mock.patch.object(web.config, "AUTH_PASSWORD", "p"):
+            self.assertTrue(zugaenge.allowed("192.168.1.20"))
 
     def test_compare(self):
         page = self.req("/vergleich?vcpu=2&ram=4&os=linux")

@@ -180,6 +180,9 @@ class Handler(BaseHTTPRequestHandler):
                          "laeuft": t("Für diese Anbieter läuft bereits ein Abruf."),
                          "kurse": t("Wechselkurse aktualisiert.")}.get(params.pop("info", ""), "")
                 self._send(pages.page_prices(db, params, CSRF_TOKEN, flash))
+            elif parts == ["zugaenge"]:
+                from . import zugaenge
+                self._send(pages.page_zugaenge(CSRF_TOKEN, zugaenge.allowed(self._client_ip()), params.get("info", "")))
             elif parts == ["archiv"]:
                 self._send(pages.page_archive(db, params))
             elif parts == ["protokoll"]:
@@ -263,6 +266,15 @@ class Handler(BaseHTTPRequestHandler):
             return
         db = self.db
         try:
+            if parts == ["zugaenge"]:
+                from . import zugaenge
+                if not zugaenge.allowed(self._client_ip()):
+                    self._send(b"Nicht erlaubt", "text/plain; charset=utf-8", 403)
+                    return
+                changed = zugaenge.save({k: form.get(k, "") for k, _, _ in zugaenge.KEYS})
+                msg = t("Gespeichert: {n}", n=", ".join(changed)) if changed else t("Nichts geändert.")
+                self._redirect("zugaenge?" + urllib.parse.urlencode({"info": msg}))
+                return
             if parts == ["aktualisieren"]:
                 target = form.get("provider", "all")
                 enabled = {k for k in PROVIDERS if config.load_config()["providers"].get(k, {}).get("enabled", True)}
